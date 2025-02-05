@@ -10,7 +10,7 @@ const ProfileSection = () => {
       <img
         src="/assets/profile.jpg" 
         alt="Profile"
-        className="w-10 h-10 rounded-full object-cover" 
+        className="w-8 h-8 rounded-full object-cover" 
       />
     </div>
   );
