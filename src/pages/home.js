@@ -1,4 +1,4 @@
-import HomeScreen from '../../views/Home/Home.js';
+import HomeScreen from '../views/Home/Home';
 
 import '../styles/index.css';
 

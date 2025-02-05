@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { FaEye, FaEyeSlash, FaBolt } from "react-icons/fa";
-import Link from "next/link"; 
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Link from "next/link";
+import { useRouter } from "next/navigation"; // Import useRouter hook
 import "@fontsource/baloo-chettan-2";
 import "@fontsource/montserrat";
 
@@ -12,6 +13,7 @@ const LoginForm: React.FC = () => {
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+  const router = useRouter(); // Initialize the router
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
   const toggleRememberMe = () => setRememberMe(!rememberMe);
@@ -34,7 +36,8 @@ const LoginForm: React.FC = () => {
       setErrors(formErrors);
     } else {
       setErrors({});
-      alert(`Logging in...\nRemember Me: ${rememberMe}`);
+      
+      router.push("/home"); // Navigate to the home screen
     }
   };
 
@@ -92,17 +95,17 @@ const LoginForm: React.FC = () => {
           </div>
 
           <button
-  type="submit"
-  className="w-full flex items-center justify-center bg-blue-900 text-white py-3 rounded-full text-lg font-semibold hover:bg-blue-800 transition"
-  style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "16px", fontWeight: 600 }}
->
-   <img
-    src="/assets/logos/logosite.png" 
-    alt="Logo"
-    className="mr-2 w-6 h-6"  
-  />
-   Login
-    </button>
+            type="submit"
+            className="w-full flex items-center justify-center bg-blue-900 text-white py-3 rounded-full text-lg font-semibold hover:bg-blue-800 transition"
+            style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "16px", fontWeight: 600 }}
+          >
+            <img
+              src="/assets/logos/logosite.png"
+              alt="Logo"
+              className="mr-2 w-6 h-6"
+            />
+            Login
+          </button>
         </form>
 
         <p className="text-center mt-4 text-gray-600">
