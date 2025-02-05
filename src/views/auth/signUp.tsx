@@ -152,9 +152,9 @@ const SignUpForm: React.FC = () => {
         src="/assets/logos/logosite.png"  
     alt="Logo"
     className="mr-2 w-6 h-6"  
-  />
-  Sign Up
-</button>
+      />
+      Sign Up
+     </button>
 
         </form>
 
