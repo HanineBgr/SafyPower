@@ -38,7 +38,7 @@ const ForgotPasswordForm: React.FC = () => {
 
         <form onSubmit={handleSubmit}>
           {/* Email input field */}
-          <div className="mb-3">  {/* Reduced margin bottom here */}
+          <div className="mb-3">  {}
             <input
               type="email"
               placeholder="Type your email"
@@ -67,7 +67,7 @@ const ForgotPasswordForm: React.FC = () => {
         {/* Link to login page */}
         <p className="text-center mt-4 text-gray-600">
           Remember your password?{" "}
-          <Link href="/login" className="text-blue-600 hover:underline">
+          <Link href="/auth/login" className="text-blue-600 hover:underline">
             Login
           </Link>
         </p>

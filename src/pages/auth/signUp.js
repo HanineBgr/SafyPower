@@ -1,5 +1,5 @@
-import SignUpForm from '../views/auth/signUp';
-import '../styles/index.css';
+import SignUpForm from '../../views/auth/signUp';
+import '../../styles/index.css';
 
 const SignUpPage = () => {
   return <SignUpForm />;

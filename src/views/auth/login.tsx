@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash, FaBolt } from "react-icons/fa";
-import Link from "next/link"; // Import Link for navigation
+import Link from "next/link"; 
 import "@fontsource/baloo-chettan-2";
 import "@fontsource/montserrat";
 
@@ -107,12 +107,12 @@ const LoginForm: React.FC = () => {
 
         <p className="text-center mt-4 text-gray-600">
           Don't have an account?{" "}
-          <Link href="/signUp" className="text-blue-600 hover:underline">
+          <Link href="/auth/signUp" className="text-blue-600 hover:underline">
             Sign up
           </Link>
         </p>
         <p className="text-center mt-2 text-gray-600">
-          <a href="/ForgotPassword" className="text-blue-600 hover:underline">
+          <a href="/auth/forgotPassword" className="text-blue-600 hover:underline">
             Forgot password?
           </a>
         </p>
