@@ -4,7 +4,7 @@ import React from "react";
 import Sidebar from "../../components/sidebar";
 import SearchBar from "../../components/searchbar";
 import ProfileSection from "../../components/profile";
-
+import ChangeStationButton from "../../components/switchbutton";
 
 const HomeScreen: React.FC = () => {
   return (
@@ -18,12 +18,12 @@ const HomeScreen: React.FC = () => {
           <h1 className="text-3xl font-bold text-gray-800">SafyPower</h1>
           <SearchBar />
         </div>
+        <ChangeStationButton className="mt-4" /> 
         <p className="mt-4 text-gray-600">
           Welcome to the Home screen. Here you can add the content you need.
         </p>
       </div>
 
-      {/* Profile Section in the top right */}
       <ProfileSection />
     </div>
   );
