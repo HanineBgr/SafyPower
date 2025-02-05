@@ -92,12 +92,17 @@ const LoginForm: React.FC = () => {
           </div>
 
           <button
-            type="submit"
-            className="w-full flex items-center justify-center bg-blue-900 text-white py-3 rounded-full text-lg font-semibold hover:bg-blue-800 transition"
-            style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "16px", fontWeight: 600 }}
-          >
-            <FaBolt className="mr-2" /> Login
-          </button>
+  type="submit"
+  className="w-full flex items-center justify-center bg-blue-900 text-white py-3 rounded-full text-lg font-semibold hover:bg-blue-800 transition"
+  style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "16px", fontWeight: 600 }}
+>
+   <img
+    src="/assets/logos/logosite.png" 
+    alt="Logo"
+    className="mr-2 w-6 h-6"  
+  />
+   Login
+    </button>
         </form>
 
         <p className="text-center mt-4 text-gray-600">

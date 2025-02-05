@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { FaBolt } from "react-icons/fa"; // Import only necessary icons
-import Link from "next/link"; // Import Link for navigation
+import Link from "next/link";
 import "@fontsource/baloo-chettan-2";
 import "@fontsource/montserrat";
 
@@ -29,9 +28,9 @@ const ForgotPasswordForm: React.FC = () => {
       className="flex justify-center items-center min-h-screen bg-cover bg-center"
       style={{ backgroundImage: "url('/assets/background/bg.png')" }}
     >
-      <div className="bg-white p-8 rounded-2xl shadow-xl w-96 h-[400px] flex flex-col justify-between pt-8"> {/* Reduced padding-top */}
+      <div className="bg-white p-8 rounded-2xl shadow-xl w-96 h-[400px] flex flex-col justify-between pt-8">
         <h2
-          className="text-[32px] font-bold text-black text-center mb-4" 
+          className="text-[32px] font-bold text-black text-center mb-2"  // Reduced margin bottom here
           style={{ fontFamily: "'Baloo Chettan 2', sans-serif" }}
         >
           Forgot Password
@@ -39,7 +38,7 @@ const ForgotPasswordForm: React.FC = () => {
 
         <form onSubmit={handleSubmit}>
           {/* Email input field */}
-          <div className="mb-4">
+          <div className="mb-3">  {/* Reduced margin bottom here */}
             <input
               type="email"
               placeholder="Type your email"
@@ -53,10 +52,15 @@ const ForgotPasswordForm: React.FC = () => {
           {/* Submit button */}
           <button
             type="submit"
-            className="w-full flex items-center justify-center bg-blue-900 text-white py-2 px-4 rounded-full text-lg font-semibold hover:bg-blue-800 transition mt-auto"
+            className="w-full flex items-center justify-center bg-blue-900 text-white py-3 rounded-full text-lg font-semibold hover:bg-blue-800 transition"
             style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "16px", fontWeight: 600 }}
           >
-            <FaBolt className="mr-2" /> Send your instructions
+            <img
+              src="/assets/logos/logosite.png"  
+              alt="Logo"
+              className="mr-2 w-6 h-6"  
+            />
+            Send instructions
           </button>
         </form>
 
