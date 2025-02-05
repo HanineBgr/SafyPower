@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash, FaBolt } from "react-icons/fa";
+import Link from "next/link"; // Import Link for navigation
 import "@fontsource/baloo-chettan-2";
-import "@fontsource/montserrat"; 
+import "@fontsource/montserrat";
 
 const LoginForm: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,14 +20,12 @@ const LoginForm: React.FC = () => {
     e.preventDefault();
     let formErrors: { email?: string; password?: string } = {};
 
-    // Email validation
     if (!email) {
       formErrors.email = "Please enter your email.";
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       formErrors.email = "Please enter a valid email address.";
     }
 
-    // Password validation
     if (!password) {
       formErrors.password = "Please enter your password";
     }
@@ -45,7 +44,6 @@ const LoginForm: React.FC = () => {
       style={{ backgroundImage: "url('/assets/background/bg.png')" }}
     >
       <div className="bg-white p-8 rounded-2xl shadow-xl w-96 h-[500px] flex flex-col justify-start pt-10">
-        {/* Updated Welcome Text */}
         <h2
           className="text-[32px] font-bold text-black text-center mb-6"
           style={{ fontFamily: "'Baloo Chettan 2', sans-serif" }}
@@ -82,23 +80,17 @@ const LoginForm: React.FC = () => {
             {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
           </div>
 
-          {/* Remember Me Switch */}
           <div className="flex items-center mb-6 cursor-pointer" onClick={toggleRememberMe}>
             <div
-              className={`w-10 h-5 rounded-full p-1 flex items-center transition-all duration-300 ${
-                rememberMe ? "bg-blue-800" : "bg-gray-300"
-              }`}
+              className={`w-10 h-5 rounded-full p-1 flex items-center transition-all duration-300 ${rememberMe ? "bg-blue-800" : "bg-gray-300"}`}
             >
               <div
-                className={`w-4 h-4 bg-white rounded-full shadow-md transform transition-all duration-300 ${
-                  rememberMe ? "translate-x-5" : "translate-x-0"
-                }`}
+                className={`w-4 h-4 bg-white rounded-full shadow-md transform transition-all duration-300 ${rememberMe ? "translate-x-5" : "translate-x-0"}`}
               ></div>
             </div>
             <span className="ml-3 text-gray-700">Remember me</span>
           </div>
 
-          {/* Updated Login Button */}
           <button
             type="submit"
             className="w-full flex items-center justify-center bg-blue-900 text-white py-3 rounded-full text-lg font-semibold hover:bg-blue-800 transition"
@@ -110,12 +102,12 @@ const LoginForm: React.FC = () => {
 
         <p className="text-center mt-4 text-gray-600">
           Don't have an account?{" "}
-          <a href="#" className="text-blue-600 hover:underline">
+          <Link href="/signUp" className="text-blue-600 hover:underline">
             Sign up
-          </a>
+          </Link>
         </p>
         <p className="text-center mt-2 text-gray-600">
-          <a href="#" className="text-blue-600 hover:underline">
+          <a href="/ForgotPassword" className="text-blue-600 hover:underline">
             Forgot password?
           </a>
         </p>
