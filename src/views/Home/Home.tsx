@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Sidebar from "../../components/sidebar";
 import SearchBar from "../../components/searchbar";
@@ -10,6 +8,7 @@ import UsedStationsChart from "../../components/usedStations";
 import TotalVisitsChart from "../../components/TotalVisitsChart";  
 import StationUsageDonutChart from "../../components/DonutChart";  
 import TrackingSession from "../../components/TrackingUser"; 
+import StationUsagePieChart from "../../components/DonutChart";
 
 const HomeScreen: React.FC = () => {
   return (
@@ -36,12 +35,13 @@ const HomeScreen: React.FC = () => {
         </div>
 
         <div className="mt-6 flex gap-6">
-          <div className="flex-1 h-[300px]">
+          {/* Maximize TotalVisitsChart width and align with StationUsagePieChart */}
+          <div className="flex-1 h-[300px] max-w-[70%]">
             <TotalVisitsChart />
           </div>
 
-          <div className="w-[35%] h-[300px] mt-6"> 
-            <StationUsageDonutChart /> 
+          <div className="flex-1 h-[300px] max-w-[30%]">
+            <StationUsagePieChart />
           </div>
         </div>
 

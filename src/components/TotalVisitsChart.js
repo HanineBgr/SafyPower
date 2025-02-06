@@ -1,64 +1,59 @@
-import React from "react";
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Area } from "recharts";
+import { XAxis, YAxis, Tooltip, ResponsiveContainer, Area, AreaChart } from "recharts";
 
-// Example data for different dates
 const data = [
-  { time: "7 am", visits: 50 },
-  { time: "8 am", visits: 75 },
-  { time: "9 am", visits: 100 },
-  { time: "10 am", visits: 120 },
-  { time: "11 am", visits: 90 },
-  { time: "12 pm", visits: 80 },
-  { time: "1 pm", visits: 110 },
+  { day: "Mon", visits: 80 },
+  { day: "Tue", visits: 72 },
+  { day: "Wed", visits: 64 },
+  { day: "Thu", visits: 50 },
+  { day: "Fri", visits: 20 },
+  { day: "Sat", visits: 60 },
+  { day: "Sun", visits: 45 },
 ];
+
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-white p-2 shadow-md rounded-full text-sm font-semibold">
+        {`${payload[0].value} visits`}
+      </div>
+    );
+  }
+  return null;
+};
 
 const TotalVisitsChart = () => {
   return (
-    <div className="bg-white p-6 rounded-lg mt-6" style={{ width: "800px" , height: "370px" }}>
-      {/* Chart Title */}
-      <div className="flex justify-between items-center px-4 pb-2 mb-4">
-        <h2 className="text-lg font-semibold text-gray-800">Total Visits</h2>
-      </div>
-
-      {/* Line chart container */}
-      <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={data} margin={{ top: 10, right: 20, left: 30, bottom: 10 }}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="time" tick={{ fill: "#555", fontSize: 12 }} axisLine={false} tickLine={false} />
-          <YAxis tick={{ fill: "#555", fontSize: 12 }} axisLine={false} tickLine={false} />
-          <Tooltip 
-            contentStyle={{
-              backgroundColor: '#fff', 
-              borderColor: '#ddd', 
-              borderWidth: 1, 
-              borderRadius: 8, 
-              padding: "6px 12px", 
-              fontSize: "12px"
-            }} 
+    <div className="p-2 bg-white shadow-md rounded-2xl w-full max-w-4xl h-[300px]"> {/* Increased height here */}
+      <h2 className="text-sm font-semibold">Total visits</h2>
+      <ResponsiveContainer width="100%" height={250}>
+        <AreaChart data={data}>
+          <XAxis
+            dataKey="day"
+            stroke="#888"
+            axisLine={false}
+            tickLine={false}
+            tick={{ fontSize: 10 }} // Reduce the font size of the X axis labels
           />
-          {/* Gradient Area under the Line */}
-          <Area 
-            type="monotone" 
-            dataKey="visits" 
-            stroke="#8884d8" 
-            fill="url(#gradient)"
-            fillOpacity={0.4} 
+          <YAxis
+            stroke="#888"
+            tickLine={false}
+            axisLine={false}
+            tick={{ fontSize: 10 }} // Reduce the font size of the Y axis labels
           />
-          <Line 
-            type="monotone" 
-            dataKey="visits" 
-            stroke="#8884d8" 
-            strokeWidth={2} 
-            activeDot={{ r: 8 }} 
+          <Tooltip content={<CustomTooltip />} />
+          <Area
+            type="monotone"
+            dataKey="visits"
+            fill="url(#colorGradient)"
+            dot={{ r: 6, stroke: "#FF73C0", strokeWidth: 2, fill: "white" }}
           />
-          {/* Gradient Definition */}
           <defs>
-            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#8884d8" stopOpacity={0.6} />
-              <stop offset="100%" stopColor="#8884d8" stopOpacity={0.1} />
+            <linearGradient id="colorGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#7B61FF" stopOpacity={0.3} />
+              <stop offset="100%" stopColor="#FF73C0" stopOpacity={0.1} />
             </linearGradient>
           </defs>
-        </LineChart>
+        </AreaChart>
       </ResponsiveContainer>
     </div>
   );
