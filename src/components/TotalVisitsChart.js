@@ -23,16 +23,16 @@ const CustomTooltip = ({ active, payload }) => {
 
 const TotalVisitsChart = () => {
   return (
-    <div className="p-2 bg-white shadow-md rounded-2xl w-full max-w-4xl h-[300px]"> {/* Increased height here */}
+    <div className="p-2 bg-white shadow-md rounded-2xl w-full max-w-4xl h-[300px]">
       <h2 className="text-sm font-semibold">Total visits</h2>
-      <ResponsiveContainer width="100%" height={250}>
+      <ResponsiveContainer width="100%" height={250} className="mt-4 mr-6"> 
         <AreaChart data={data}>
           <XAxis
             dataKey="day"
             stroke="#888"
             axisLine={false}
             tickLine={false}
-            tick={{ fontSize: 10 }} // Reduce the font size of the X axis labels
+            tick={{ fontSize: 10 }} 
           />
           <YAxis
             stroke="#888"

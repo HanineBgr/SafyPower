@@ -1,48 +1,78 @@
 import React from "react";
+import { FaStar } from "react-icons/fa"; 
 
-// Sample user data
-const userData = {
-  name: "John Doe",
-  email: "john.doe@example.com",
-  phone: "+1234567890",
-  address: "123 Main St, Springfield, USA",
+const userData = [
+  {
+    id: "12345",
+    startTime: "10:00 AM",
+    endTime: "12:00 PM",
+    chargingTime: "2 hours",
+    rating: 4,
+  },
+  {
+    id: "67890",
+    startTime: "1:00 PM",
+    endTime: "3:00 PM",
+    chargingTime: "2 hours",
+    rating: 3,
+  },
+  {
+    id: "11223",
+    startTime: "5:00 PM",
+    endTime: "7:00 PM",
+    chargingTime: "2 hours",
+    rating: 5,
+  },
+  
+];
+
+// Function to render stars based on the rating
+const renderStars = (rating) => {
+  let stars = [];
+  for (let i = 1; i <= 5; i++) {
+    stars.push(
+      <FaStar
+        key={i}
+        size={20}
+        color={i <= rating ? "#FFD700" : "#D3D3D3"} 
+      />
+    );
+  }
+  return stars;
 };
 
-const UserInfo = () => {
+const TrackingUser = () => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md w-full mx-auto mt-8">
-      <h2 className="text-lg font-semibold text-gray-800 mb-4">User Information</h2>
-      
-      {/* User Info */}
-      <div className="mb-4">
-        <p className="text-sm text-gray-800">
-          <span className="font-medium">Name: </span>
-          {userData.name}
-        </p>
-      </div>
-
-      <div className="mb-4">
-        <p className="text-sm text-gray-800">
-          <span className="font-medium">Email: </span>
-          {userData.email}
-        </p>
-      </div>
-
-      <div className="mb-4">
-        <p className="text-sm text-gray-800">
-          <span className="font-medium">Phone: </span>
-          {userData.phone}
-        </p>
-      </div>
-
-      <div className="mb-4">
-        <p className="text-sm text-gray-800">
-          <span className="font-medium">Address: </span>
-          {userData.address}
-        </p>
+    <div className="p-6 bg-white shadow-xl rounded-xl max-w-full mx-auto">
+      <h2 className="text-sm font-semibold text-gray-800 mb-6">Individual User Tracking</h2>
+      <div className="overflow-y-auto max-h-[400px] "> {/* Fixed height and scroll enabled */}
+        <table className="min-w-full table-auto">
+          <thead>
+            <tr>
+              <th className="px-6 py-4 text-left text-gray-600">User ID</th>
+              <th className="px-6 py-4 text-left text-gray-600">Start Time</th>
+              <th className="px-6 py-4 text-left text-gray-600">End Time</th>
+              <th className="px-6 py-4 text-left text-gray-600">Charging Time</th>
+              <th className="px-6 py-4 text-left text-gray-600">Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            {userData.map((user, index) => (
+              <tr key={index} className="hover:bg-gray-100">
+                <td className="px-6 py-4 text-gray-800">{user.id}</td>
+                <td className="px-6 py-4 text-gray-800">{user.startTime}</td>
+                <td className="px-6 py-4 text-gray-800">{user.endTime}</td>
+                <td className="px-6 py-4 text-gray-800">{user.chargingTime}</td>
+                <td className="px-6 py-4 text-gray-800">
+                  <div className="flex">{renderStars(user.rating)}</div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
 };
 
-export default UserInfo;
+export default TrackingUser;

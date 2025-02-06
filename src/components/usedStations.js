@@ -12,7 +12,7 @@ const data = [
 
 const UsedStationsChart = () => {
   return (
-    <div className="bg-white p-4 rounded-lg max-w-lg mt-6"> 
+    <div className="bg-white p-4 rounded-3xl max-w-lg mt-6"> 
       <div className="flex justify-between items-center px-4 pb-2">
         <h2 className="text-sm font-semibold text-gray-800">Stations in use</h2>
         <span className="text-gray-500 text-xs">per hour</span>
