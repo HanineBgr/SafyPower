@@ -1,21 +1,58 @@
-import React from 'react';
-import { BarChart2, User, MessageCircle } from 'lucide-react';
+import React from "react";
+import { BarChart2, User, MessageCircle } from "lucide-react";
+import { useRouter } from "next/router";
 
 const Sidebar = () => {
+  const router = useRouter(); // Initialize the router for navigation
+  const currentPath = router.pathname; // Get the current path
+
+  // Helper function to determine active state
+  const isActive = (path) => currentPath === path;
+
   return (
-    <div className="w-14 bg-white flex flex-col items-center py-4 shadow-md rounded-2xl fixed top-6 left-4 h-[90vh]"> {/* Adjusted top to align with text */}
-      <div className="mb-8 mt-6"> 
+    <div className="w-14 bg-white flex flex-col items-center py-4 shadow-md rounded-2xl fixed top-6 left-4 h-[90vh]">
+      {/* Logo */}
+      <div className="mb-8 mt-6">
         <img src="/assets/logos/logo.png" alt="Logo" className="w-12 h-12" />
       </div>
+
+      {/* Sidebar Buttons */}
       <div className="flex flex-col gap-6 mt-14">
-        <button className="bg-yellow-400 p-2 rounded-full flex items-center justify-center shadow-md">
-          <BarChart2 className="text-gray-600 w-4 h-4 fill-current" /> 
+        <button
+          className={`p-2 rounded-full flex items-center justify-center shadow-md ${
+            isActive("/home") ? "bg-yellow-400" : "bg-gray-100"
+          }`}
+          onClick={() => router.push("/home")}
+        >
+          <BarChart2
+            className={`w-4 h-4 ${
+              isActive("/home") ? "text-gray-900" : "text-gray-600"
+            }`}
+          />
         </button>
-        <button className="bg-gray-100 p-2 rounded-full flex items-center justify-center shadow-sm">
-          <User className="text-gray-600 w-4 h-4 fill-current" /> 
+        <button
+          className={`p-2 rounded-full flex items-center justify-center shadow-md ${
+            isActive("/auth/profile") ? "bg-yellow-400" : "bg-gray-100"
+          }`}
+          onClick={() => router.push("/auth/profile")} // Updated to correct path
+        >
+          <User
+            className={`w-4 h-4 ${
+              isActive("/auth/profile") ? "text-gray-900" : "text-gray-600"
+            }`}
+          />
         </button>
-        <button className="bg-gray-100 p-2 rounded-full flex items-center justify-center shadow-sm">
-          <MessageCircle className="text-gray-600 w-4 h-4 fill-current" /> 
+        <button
+          className={`p-2 rounded-full flex items-center justify-center shadow-md ${
+            isActive("/messages") ? "bg-yellow-400" : "bg-gray-100"
+          }`}
+          onClick={() => router.push("/messages")}
+        >
+          <MessageCircle
+            className={`w-4 h-4 ${
+              isActive("/messages") ? "text-gray-900" : "text-gray-600"
+            }`}
+          />
         </button>
       </div>
     </div>

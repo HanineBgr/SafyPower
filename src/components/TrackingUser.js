@@ -26,14 +26,13 @@ const userData = [
   
 ];
 
-// Function to render stars based on the rating
 const renderStars = (rating) => {
   let stars = [];
   for (let i = 1; i <= 5; i++) {
     stars.push(
       <FaStar
         key={i}
-        size={20}
+        size={15}
         color={i <= rating ? "#FFD700" : "#D3D3D3"} 
       />
     );

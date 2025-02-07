@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Import useRouter hook
+import { useRouter } from "next/navigation"; 
 import "@fontsource/baloo-chettan-2";
 import "@fontsource/montserrat";
 
@@ -13,7 +13,7 @@ const LoginForm: React.FC = () => {
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
-  const router = useRouter(); // Initialize the router
+  const router = useRouter();
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
   const toggleRememberMe = () => setRememberMe(!rememberMe);
@@ -37,7 +37,7 @@ const LoginForm: React.FC = () => {
     } else {
       setErrors({});
       
-      router.push("/home"); // Navigate to the home screen
+      router.push("/home"); 
     }
   };
 

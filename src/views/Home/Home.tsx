@@ -1,13 +1,12 @@
 import React from "react";
 import Sidebar from "../../components/sidebar";
 import SearchBar from "../../components/searchbar";
-import ProfileSection from "../../components/profile";
+import ProfileSection from "../../components/profileSection";
 import ChangeStationButton from "../../components/switchbutton";
 import AvailableStationsChart from "../../components/availableStationChart";
 import UsedStationsChart from "../../components/usedStations";
 import TotalVisitsChart from "../../components/TotalVisitsChart";
-import StationUsageDonutChart from "../../components/DonutChart";
-import TrackingUser from "../../components/TrackingUser"; // Importing TrackingUser
+import TrackingUser from "../../components/TrackingUser"; 
 import StationUsagePieChart from "../../components/DonutChart";
 import dynamic from "next/dynamic";
 
