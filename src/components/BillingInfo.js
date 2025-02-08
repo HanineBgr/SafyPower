@@ -2,7 +2,7 @@ import React from "react";
 
 const BillingInformation = () => {
   return (
-    <div className="bg-white p-6 shadow-md rounded-xl">
+    <div className="bg-white p-6 shadow-md rounded-xl max-w-xl"> {/* Reduced width */}
       <h2 className="text-lg font-bold">Billing information</h2>
       <div className="mt-4 space-y-4">
         <div className="p-4 bg-gray-100 rounded-lg flex justify-between items-center">

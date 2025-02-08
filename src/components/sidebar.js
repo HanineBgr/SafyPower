@@ -3,8 +3,8 @@ import { BarChart2, User, MessageCircle } from "lucide-react";
 import { useRouter } from "next/router";
 
 const Sidebar = () => {
-  const router = useRouter(); // Initialize the router for navigation
-  const currentPath = router.pathname; // Get the current path
+  const router = useRouter(); 
+  const currentPath = router.pathname; 
 
   // Helper function to determine active state
   const isActive = (path) => currentPath === path;
@@ -34,7 +34,7 @@ const Sidebar = () => {
           className={`p-2 rounded-full flex items-center justify-center shadow-md ${
             isActive("/auth/profile") ? "bg-yellow-400" : "bg-gray-100"
           }`}
-          onClick={() => router.push("/auth/profile")} // Updated to correct path
+          onClick={() => router.push("/auth/profile")} 
         >
           <User
             className={`w-4 h-4 ${
@@ -44,13 +44,13 @@ const Sidebar = () => {
         </button>
         <button
           className={`p-2 rounded-full flex items-center justify-center shadow-md ${
-            isActive("/messages") ? "bg-yellow-400" : "bg-gray-100"
+            isActive("/auth/contactForm") ? "bg-yellow-400" : "bg-gray-100"
           }`}
-          onClick={() => router.push("/messages")}
+          onClick={() => router.push("/auth/contactForm")} 
         >
           <MessageCircle
             className={`w-4 h-4 ${
-              isActive("/messages") ? "text-gray-900" : "text-gray-600"
+              isActive("/auth/contactForm") ? "text-gray-900" : "text-gray-600"
             }`}
           />
         </button>

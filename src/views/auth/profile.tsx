@@ -33,7 +33,6 @@ const ProfileScreen = () => {
           <PaymentCards />
         </div>
 
-        {/* Bottom Section: Billing Info and Feedback */}
         <div className="mt-6 grid grid-cols-3 gap-6">
           {/* Billing Information */}
           <div className="col-span-2">
