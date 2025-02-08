@@ -44,7 +44,7 @@ const TrackingUser = () => {
   return (
     <div className="p-6 bg-white shadow-xl rounded-xl max-w-full mx-auto">
       <h2 className="text-sm font-semibold text-gray-800 mb-6">Individual User Tracking</h2>
-      <div className="overflow-y-auto max-h-[400px] "> {/* Fixed height and scroll enabled */}
+      <div className="overflow-y-auto max-h-[400px] "> 
         <table className="min-w-full table-auto">
           <thead>
             <tr>

@@ -1,8 +1,21 @@
 import React from "react";
 import Sidebar from "../components/sidebar";
-import { FaPlug, FaTemperatureHigh, FaFireAlt, FaShieldAlt } from "react-icons/fa";
+import ChangeStationButton from "../components/switchbutton";
+import {
+  FaPlug,
+  FaTemperatureHigh,
+  FaFireAlt,
+  FaShieldAlt,
+  FaExclamationTriangle,
+} from "react-icons/fa";
 
 const SecurityDashboard = () => {
+  const stations = ["Station1", "Station2", "Station3"];
+
+  const handleStationChange = (station: string) => {
+    console.log(`Selected Station: ${station}`);
+  };
+
   const boxes = [
     {
       id: 1,
@@ -63,7 +76,9 @@ const SecurityDashboard = () => {
       <div className="flex-1 flex flex-col w-full p-6 ml-20">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-xl font-bold">Station 1</h1>
+          <ChangeStationButton
+            stations={stations}
+            onStationChange={handleStationChange} className={undefined}          />
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium">ON</span>
             <input
@@ -82,43 +97,36 @@ const SecurityDashboard = () => {
               className="bg-white rounded-2xl shadow-md p-6 flex flex-col gap-4"
             >
               <div className="flex items-center justify-between">
-                {/* ID inside smaller gray circle */}
                 <div className="w-5 h-5 bg-gray-300 text-gray-800 flex items-center justify-center rounded-full">
                   <span className="text-[10px] font-bold">{box.id}</span>
                 </div>
               </div>
-              <div className="flex items-center justify-between">
-                {/* Icon inside circle */}
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 bg-blue-100 text-blue-600 flex items-center justify-center rounded-full">
-                    <FaPlug className="w-3 h-3" />
-                  </div>
-                  <span className="text-sm">{box.status}</span>
+              <div className="flex items-center">
+                <div className="w-6 h-6 bg-blue-100 text-blue-600 flex items-center justify-center rounded-full mr-2">
+                  <FaPlug className="w-3 h-3" />
                 </div>
+                <span className="text-sm">{box.status}</span>
                 <input
                   type="checkbox"
                   checked={box.switch1}
-                  className="toggle-switch w-8 h-4 rounded-full"
+                  className="toggle-switch w-8 h-4 rounded-full ml-auto"
                 />
               </div>
-              <div className="flex items-center justify-between">
-                {/* Icon inside circle */}
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 bg-orange-100 text-orange-600 flex items-center justify-center rounded-full">
-                    <FaTemperatureHigh className="w-3 h-3" />
-                  </div>
-                  <span className="text-sm">{box.temperature}</span>
+              <div className="flex items-center">
+                <div className="w-6 h-6 bg-orange-100 text-orange-600 flex items-center justify-center rounded-full mr-2">
+                  <FaTemperatureHigh className="w-3 h-3" />
                 </div>
+                <span className="text-sm">{box.temperature}</span>
                 <input
                   type="checkbox"
                   checked={box.switch2}
-                  className="toggle-switch w-8 h-4 rounded-full"
+                  className="toggle-switch w-8 h-4 rounded-full ml-auto"
                 />
               </div>
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center">
                   <div
-                    className={`w-6 h-6 flex items-center justify-center rounded-full ${
+                    className={`w-6 h-6 flex items-center justify-center rounded-full mr-2 ${
                       box.smokeDetector
                         ? "bg-green-100 text-green-600"
                         : "bg-red-100 text-red-600"
@@ -131,11 +139,12 @@ const SecurityDashboard = () => {
                     )}
                   </div>
                   <span className="text-sm">
-                    {box.smokeDetector
-                      ? "Détecteur de fumée"
-                      : "Alerte de fumée"}
+                    {box.smokeDetector ? "Détecteur de fumée" : "Alerte de fumée"}
                   </span>
                 </div>
+                {!box.smokeDetector && box.temperature === "31.8 °C" && (
+                  <FaExclamationTriangle className="w-5 h-5 text-red-600 ml-auto" />
+                )}
               </div>
             </div>
           ))}
