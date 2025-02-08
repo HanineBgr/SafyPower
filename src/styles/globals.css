@@ -30,7 +30,7 @@ body {
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background: #e2e613;
+  background: #e6e78b;
   border-radius: 10px;
 }
 body {
@@ -69,10 +69,10 @@ button {
 }
 .toggle-switch {
   appearance: none;
-  width: 2.5rem; /* Toggle width */
-  height: 1.25rem; /* Toggle height */
+  width: 2.5rem; 
+  height: 1.25rem; 
   background: linear-gradient(90deg, #a7f3d0, #34d399);
-  border-radius: 1.25rem; /* Same as height for full roundness */
+  border-radius: 1.25rem; 
   position: relative;
   cursor: pointer;
   outline: none;
@@ -87,16 +87,16 @@ button {
 }
 
 .toggle-switch:checked::before {
-  transform: translateX(1.25rem); /* Adjusted for proper movement */
+  transform: translateX(1.2rem); 
 }
 
 .toggle-switch::before {
   content: "";
   position: absolute;
-  top: 0.02rem; /* Adjusted closer for better centering */
-  left: 0.07rem; /* Slightly adjusted for correct positioning */
-  width: 1.15rem; /* 🔹 Increased circle size */
-  height: 1.15rem; /* 🔹 Increased circle size */
+  top: 0.05rem; 
+  left: 0.1rem;
+  width: 1.05rem; 
+  height: 1.05rem; 
   background: white;
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);

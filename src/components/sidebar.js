@@ -19,7 +19,7 @@ const Sidebar = () => {
       <div className="flex flex-col gap-6 mt-14">
         <button
           className={`p-2 rounded-full flex items-center justify-center shadow-md ${
-            isActive("/home") ? "bg-yellow-400" : "bg-gray-100"
+            isActive("/home") ? "bg-[#fedd69]" : "bg-gray-100"
           }`}
           onClick={() => router.push("/home")}
         >
@@ -31,7 +31,7 @@ const Sidebar = () => {
         </button>
         <button
           className={`p-2 rounded-full flex items-center justify-center shadow-md ${
-            isActive("/auth/profile") ? "bg-yellow-400" : "bg-gray-100"
+            isActive("/auth/profile") ? "bg-[#fedd69]" : "bg-gray-100"
           }`}
           onClick={() => router.push("/auth/profile")} 
         >
@@ -43,7 +43,7 @@ const Sidebar = () => {
         </button>
         <button
           className={`p-2 rounded-full flex items-center justify-center shadow-md ${
-            isActive("/auth/contactForm") ? "bg-yellow-400" : "bg-gray-100"
+            isActive("/auth/contactForm") ? "bg-[#fedd69]" : "bg-gray-100"
           }`}
           onClick={() => router.push("/auth/contactForm")} 
         >
@@ -56,7 +56,7 @@ const Sidebar = () => {
         {/* Battery Icon Button */}
         <button
           className={`p-2 rounded-full flex items-center justify-center shadow-md ${
-            isActive("/security") ? "bg-yellow-400" : "bg-gray-100"
+            isActive("/security") ? "bg-[#fedd69]" : "bg-gray-100"
           }`}
           onClick={() => router.push("/security")} 
         >

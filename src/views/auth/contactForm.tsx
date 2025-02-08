@@ -29,76 +29,93 @@ const ContactForm: React.FC = () => {
           </div>
         )}
 
-        <div className="bg-[#f4f9ff] rounded-xl shadow-md w-[90%] max-w-[1000px] p-8">
-          {/* Header */}
-          <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-bold">Contact Form</h2>
-            <button className="text-xl font-bold text-gray-600 hover:text-black">
-              &times;
-            </button>
+        {/* ✅ Centered Form with Reduced Height */}
+        <div className="bg-[#f4f9ff] rounded-xl shadow-md w-[80%] max-w-[900px] p-6 flex flex-row-reverse items-center">
+          {/* Right Side - PNG Image Inside Form */}
+          <div className="w-2/5 flex justify-center items-center">
+            <img
+              src="/assets/Contact.png" // Replace with your actual image path
+              alt="Contact Illustration"
+              className="w-[70%] h-auto"
+            />
           </div>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit}>
-            <div className="mt-6 grid grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Prénom"
-                className="border rounded-lg p-3 w-full text-sm"
-                required
-              />
-              <input
-                type="text"
-                placeholder="Nom"
-                className="border rounded-lg p-3 w-full text-sm"
-                required
-              />
-              <input
-                type="email"
-                placeholder="E-mail"
-                className="border rounded-lg p-3 w-full text-sm"
-                required
-              />
-              <input
-                type="text"
-                placeholder="Phone N°"
-                className="border rounded-lg p-3 w-full text-sm"
-                required
-              />
-              <textarea
-                rows={4}
-                placeholder="Type your message..."
-                className="col-span-2 border rounded-lg p-3 w-full text-sm"
-                required
-              />
-            </div>
-
-            {/* Submit Button */}
-            <div className="mt-4">
-              <button
-                type="submit"
-                className="w-full flex items-center justify-center bg-blue-900 text-white py-2.5 rounded-full text-lg font-semibold hover:bg-blue-800 transition"
-                style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "16px", fontWeight: 600 }}
-              >
-                <img
-                  src="/assets/logos/logosite.png"
-                  alt="Logo"
-                  className="mr-2 w-6 h-6"
-                />
-                Send message
+          {/* Left Side - Contact Form */}
+          <div className="w-3/5 p-4">
+            {/* Header */}
+            <div className="flex justify-between items-center">
+              <h2 className="text-2xl font-bold">Contact Form</h2>
+              <button className="text-xl font-bold text-gray-600 hover:text-black">
+                &times;
               </button>
             </div>
-          </form>
 
-          {/* Contact Info */}
-          <div className="mt-6">
-            <h3 className="font-bold text-lg">Have a question for us?</h3>
-            <p className="text-sm text-gray-600">
-              In case of emergency contact us by phone.
-            </p>
-            <div className="flex items-center mt-2 text-blue-600">
-              <FaPhoneAlt className="mr-2" />
-              <span>+33 651 741418</span>
+            {/* Form */}
+            <form onSubmit={handleSubmit}>
+              <div className="mt-4 grid grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  placeholder="Prénom"
+                  className="border rounded-lg p-2 w-full text-sm"
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Nom"
+                  className="border rounded-lg p-2 w-full text-sm"
+                  required
+                />
+                <input
+                  type="email"
+                  placeholder="E-mail"
+                  className="border rounded-lg p-2 w-full text-sm"
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Phone N°"
+                  className="border rounded-lg p-2 w-full text-sm"
+                  required
+                />
+                <textarea
+                  rows={3}
+                  placeholder="Type your message..."
+                  className="col-span-2 border rounded-lg p-2 w-full text-sm"
+                  required
+                />
+              </div>
+
+              {/* Submit Button */}
+              <div className="mt-3">
+                <button
+                  type="submit"
+                  className="w-full flex items-center justify-center bg-blue-900 text-white py-2 rounded-full text-lg font-semibold hover:bg-blue-800 transition"
+                  style={{
+                    fontFamily: "'Montserrat', sans-serif",
+                    fontSize: "15px",
+                    fontWeight: 600,
+                  }}
+                >
+                  <img
+                    src="/assets/logos/logosite.png"
+                    alt="Logo"
+                    className="mr-2 w-5 h-5"
+                  />
+                  Send message
+                </button>
+              </div>
+            </form>
+
+            {/* Contact Info */}
+            <div className="mt-4">
+              <h3 className="font-bold text-lg">Have a question for us?</h3>
+              <p className="text-sm text-gray-600">
+                In case of emergency contact us by phone.
+              </p>
+              <div className="flex items-center mt-2 text-blue-600">
+                <FaPhoneAlt className="mr-2" />
+                <span>+33 651 741418</span>
+              </div>
             </div>
           </div>
         </div>
