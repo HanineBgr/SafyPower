@@ -1,12 +1,11 @@
 import React from "react";
-import { BarChart2, User, MessageCircle } from "lucide-react";
+import { BarChart2, User, MessageCircle, BatteryCharging } from "lucide-react";
 import { useRouter } from "next/router";
 
 const Sidebar = () => {
   const router = useRouter(); 
   const currentPath = router.pathname; 
 
-  // Helper function to determine active state
   const isActive = (path) => currentPath === path;
 
   return (
@@ -51,6 +50,19 @@ const Sidebar = () => {
           <MessageCircle
             className={`w-4 h-4 ${
               isActive("/auth/contactForm") ? "text-gray-900" : "text-gray-600"
+            }`}
+          />
+        </button>
+        {/* Battery Icon Button */}
+        <button
+          className={`p-2 rounded-full flex items-center justify-center shadow-md ${
+            isActive("/security") ? "bg-yellow-400" : "bg-gray-100"
+          }`}
+          onClick={() => router.push("/security")} 
+        >
+          <BatteryCharging
+            className={`w-4 h-4 ${
+              isActive("/security") ? "text-gray-900" : "text-gray-600"
             }`}
           />
         </button>

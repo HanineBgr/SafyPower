@@ -65,3 +65,38 @@ button:hover {
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-in-out;
 }
+.toggle-switch {
+  appearance: none;
+  width: 2.5rem; /* Slightly larger width */
+  height: 1.25rem; /* Slightly larger height */
+  background: linear-gradient(90deg, #a7f3d0, #34d399); /* Smooth gradient */
+  border-radius: 1.25rem; /* Rounded corners */
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch:checked {
+  background: linear-gradient(90deg, #32c88c92, #10b981b7); /* Brighter gradient when active */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Slightly elevated shadow */
+}
+
+.toggle-switch:checked::before {
+  transform: translateX(1.25rem); /* Adjusted for the larger toggle */
+}
+
+.toggle-switch::before {
+  content: "";
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 1rem; /* Slightly larger inner circle */
+  height: 1rem; /* Matches width for perfect circle */
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Inner shadow for a 3D effect */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
