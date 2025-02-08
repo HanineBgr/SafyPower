@@ -49,9 +49,10 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+/*button:hover {
   background-color: #004aad;
-}
+}*/  /*focus colors*/
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -92,10 +93,10 @@ button:hover {
 .toggle-switch::before {
   content: "";
   position: absolute;
-  top: 0.05rem; /* Moved closer to the top */
-  left: 0.1rem; /* Slightly reduced for centering */
-  width: 1.05rem; /* Circle width */
-  height: 1.05rem; /* Circle height */
+  top: 0.02rem; /* Adjusted closer for better centering */
+  left: 0.07rem; /* Slightly adjusted for correct positioning */
+  width: 1.15rem; /* 🔹 Increased circle size */
+  height: 1.15rem; /* 🔹 Increased circle size */
   background: white;
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);

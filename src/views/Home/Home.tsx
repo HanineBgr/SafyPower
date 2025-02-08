@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../../components/sidebar";
 import SearchBar from "../../components/searchbar";
 import ProfileSection from "../../components/profileSection";
@@ -15,6 +15,16 @@ const MapComponent = dynamic(() => import("../../components/map"), {
 });
 
 const HomeScreen: React.FC = () => {
+  const [selectedStation, setSelectedStation] = useState("Station 1");
+
+  // List of available stations
+  const stations = ["Station 1", "Station 2", "Station 3", "Station 4"];
+
+  const handleStationChange = (station: string) => {
+    console.log(`Selected Station: ${station}`);
+    setSelectedStation(station); // Update the state with the selected station
+  };
+
   return (
     <div className="flex h-screen bg-[#e0efff]">
       {/* Sidebar */}
@@ -26,9 +36,18 @@ const HomeScreen: React.FC = () => {
           <h1 className="text-3xl font-bold text-gray-800">SafyPower</h1>
           <SearchBar />
         </div>
-        <ChangeStationButton className="mt-6" />
 
-        <div className="mt-6 flex">
+        {/* ✅ Move ChangeStationButton Down */}
+        <div className="mt-4">
+          <ChangeStationButton
+            stations={stations}
+            onStationChange={handleStationChange}
+            className=""
+          />
+        </div>
+
+        {/* ✅ Reduced margin-top from `mt-6` to `mt-3` to decrease space */}
+        <div className="mt-3 flex">
           <div className="flex-1 pr-10 ml-4">
             <AvailableStationsChart />
           </div>

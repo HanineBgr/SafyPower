@@ -3,12 +3,11 @@ import { ChevronDown } from "lucide-react";
 
 const ChangeStationButton = ({ stations, onStationChange, className }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedStation, setSelectedStation] = useState(stations[0]); // Default to the first station
-
+  const [selectedStation, setSelectedStation] = useState(stations[0]); 
   const handleStationSelect = (station) => {
     setSelectedStation(station);
     setIsOpen(false);
-    onStationChange(station); // Notify parent component
+    onStationChange(station); 
   };
 
   return (
