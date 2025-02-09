@@ -12,7 +12,7 @@ import {
 const SecurityDashboard = () => {
   const stations = ["Station1", "Station2", "Station3"];
 
-  const handleStationChange = (station: string) => {
+  const handleStationChange = (station) => {
     console.log(`Selected Station: ${station}`);
   };
 
@@ -76,26 +76,17 @@ const SecurityDashboard = () => {
       <div className="flex-1 flex flex-col w-full p-6 ml-20">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
-          <ChangeStationButton
-            stations={stations}
-            onStationChange={handleStationChange} className={undefined}          />
+          <ChangeStationButton stations={stations} onStationChange={handleStationChange} />
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium">ON</span>
-            <input
-              type="checkbox"
-              checked
-              className="toggle-switch w-8 h-4 rounded-full"
-            />
+            <input type="checkbox" checked className="toggle-switch w-8 h-4 rounded-full" />
           </div>
         </div>
 
         {/* Boxes Grid */}
         <div className="grid grid-cols-3 gap-6">
           {boxes.map((box) => (
-            <div
-              key={box.id}
-              className="bg-white rounded-2xl shadow-md p-6 flex flex-col gap-4"
-            >
+            <div key={box.id} className="bg-white rounded-2xl shadow-md p-6 flex flex-col gap-4">
               <div className="flex items-center justify-between">
                 <div className="w-5 h-5 bg-gray-300 text-gray-800 flex items-center justify-center rounded-full">
                   <span className="text-[10px] font-bold">{box.id}</span>
@@ -106,37 +97,23 @@ const SecurityDashboard = () => {
                   <FaPlug className="w-3 h-3" />
                 </div>
                 <span className="text-sm">{box.status}</span>
-                <input
-                  type="checkbox"
-                  checked={box.switch1}
-                  className="toggle-switch w-8 h-4 rounded-full ml-auto"
-                />
+                <input type="checkbox" checked={box.switch1} className="toggle-switch w-8 h-4 rounded-full ml-auto" />
               </div>
               <div className="flex items-center">
                 <div className="w-6 h-6 bg-orange-100 text-orange-600 flex items-center justify-center rounded-full mr-2">
                   <FaTemperatureHigh className="w-3 h-3" />
                 </div>
                 <span className="text-sm">{box.temperature}</span>
-                <input
-                  type="checkbox"
-                  checked={box.switch2}
-                  className="toggle-switch w-8 h-4 rounded-full ml-auto"
-                />
+                <input type="checkbox" checked={box.switch2} className="toggle-switch w-8 h-4 rounded-full ml-auto" />
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <div
                     className={`w-6 h-6 flex items-center justify-center rounded-full mr-2 ${
-                      box.smokeDetector
-                        ? "bg-green-100 text-green-600"
-                        : "bg-red-100 text-red-600"
+                      box.smokeDetector ? "bg-green-100 text-green-600" : "bg-red-100 text-red-600"
                     }`}
                   >
-                    {box.smokeDetector ? (
-                      <FaShieldAlt className="w-3 h-3" />
-                    ) : (
-                      <FaFireAlt className="w-3 h-3" />
-                    )}
+                    {box.smokeDetector ? <FaShieldAlt className="w-3 h-3" /> : <FaFireAlt className="w-3 h-3" />}
                   </div>
                   <span className="text-sm">
                     {box.smokeDetector ? "Détecteur de fumée" : "Alerte de fumée"}

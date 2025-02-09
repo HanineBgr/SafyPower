@@ -4,7 +4,7 @@ import '../styles/globals.css';
 
 const InvoicesCard = () => {
   return (
-    <div className="bg-white p-6 shadow-md rounded-xl w-full max-w-[80rem]"> {/* Increased width */}
+    <div className="bg-white p-6 shadow-md rounded-xl w-full max-w-[170rem]"> {/* Significantly increased width */}
       {/* Header */}
       <div className="flex justify-between items-center">
         <h2 className="text-base font-bold">Invoices</h2>
@@ -29,7 +29,7 @@ const InvoicesCard = () => {
                 </button>
               </div>
             </div>
-            <p className="text-xs text-gray-500">ID: INV-{i + 1}</p>
+            <p className="text-xs text-gray-500">ID: INV-{i + 1}</p> {/* Added IDs */}
           </div>
         ))}
       </div>

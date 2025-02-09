@@ -7,20 +7,20 @@ import { useRouter } from "next/navigation";
 import "@fontsource/baloo-chettan-2";
 import "@fontsource/montserrat";
 
-const LoginForm: React.FC = () => {
+const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+  const [errors, setErrors] = useState({});
   const router = useRouter();
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
   const toggleRememberMe = () => setRememberMe(!rememberMe);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    let formErrors: { email?: string; password?: string } = {};
+    let formErrors = {};
 
     if (!email) {
       formErrors.email = "Please enter your email.";

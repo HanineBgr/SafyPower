@@ -6,7 +6,7 @@ import Link from "next/link";
 import "@fontsource/baloo-chettan-2";
 import "@fontsource/montserrat";
 
-const SignUpForm: React.FC = () => {
+const SignUpForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -14,15 +14,16 @@ const SignUpForm: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [fullName, setFullName] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const [errors, setErrors] = useState<{ email?: string; password?: string; confirmPassword?: string; fullName?: string }>({});
+  const [errors, setErrors] = useState({});
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
-  const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfirmPassword);
+  const toggleConfirmPasswordVisibility = () =>
+    setShowConfirmPassword(!showConfirmPassword);
   const toggleRememberMe = () => setRememberMe(!rememberMe);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    let formErrors: { email?: string; password?: string; confirmPassword?: string; fullName?: string } = {};
+    let formErrors = {};
 
     if (!fullName) {
       formErrors.fullName = "Please enter your full name.";
@@ -72,9 +73,13 @@ const SignUpForm: React.FC = () => {
               placeholder="Type your name"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              className={`w-full p-3 border-b ${errors.fullName ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:border-blue-500`}
+              className={`w-full p-3 border-b ${
+                errors.fullName ? "border-red-500" : "border-gray-300"
+              } focus:outline-none focus:border-blue-500`}
             />
-            {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
+            {errors.fullName && (
+              <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
+            )}
           </div>
 
           <div className="mb-4">
@@ -83,9 +88,13 @@ const SignUpForm: React.FC = () => {
               placeholder="Type your Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className={`w-full p-3 border-b ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:border-blue-500`}
+              className={`w-full p-3 border-b ${
+                errors.email ? "border-red-500" : "border-gray-300"
+              } focus:outline-none focus:border-blue-500`}
             />
-            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+            )}
           </div>
 
           <div className="mb-4 relative">
@@ -94,7 +103,9 @@ const SignUpForm: React.FC = () => {
               placeholder="Type your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className={`w-full p-3 border-b ${errors.password ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:border-blue-500`}
+              className={`w-full p-3 border-b ${
+                errors.password ? "border-red-500" : "border-gray-300"
+              } focus:outline-none focus:border-blue-500`}
             />
             <span
               className="absolute right-3 top-3 text-gray-600 cursor-pointer"
@@ -102,7 +113,9 @@ const SignUpForm: React.FC = () => {
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
-            {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
+            {errors.password && (
+              <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+            )}
           </div>
 
           <div className="mb-4 relative">
@@ -111,7 +124,9 @@ const SignUpForm: React.FC = () => {
               placeholder="Confirm your password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className={`w-full p-3 border-b ${errors.confirmPassword ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:border-blue-500`}
+              className={`w-full p-3 border-b ${
+                errors.confirmPassword ? "border-red-500" : "border-gray-300"
+              } focus:outline-none focus:border-blue-500`}
             />
             <span
               className="absolute right-3 top-3 text-gray-600 cursor-pointer"
@@ -119,43 +134,59 @@ const SignUpForm: React.FC = () => {
             >
               {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
-            {errors.confirmPassword && <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>}
+            {errors.confirmPassword && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.confirmPassword}
+              </p>
+            )}
           </div>
-
 
           <div className="mb-4">
             <input
               placeholder="Verification code"
               value={email}
-              className={`w-full p-3 border-b ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:border-blue-500`}
+              className={`w-full p-3 border-b ${
+                errors.email ? "border-red-500" : "border-gray-300"
+              } focus:outline-none focus:border-blue-500`}
             />
           </div>
 
-
-          <div className="flex items-center mb-6 cursor-pointer" onClick={toggleRememberMe}>
+          <div
+            className="flex items-center mb-6 cursor-pointer"
+            onClick={toggleRememberMe}
+          >
             <div
-              className={`w-10 h-5 rounded-full p-1 flex items-center transition-all duration-300 ${rememberMe ? "bg-blue-800" : "bg-gray-300"}`}
+              className={`w-10 h-5 rounded-full p-1 flex items-center transition-all duration-300 ${
+                rememberMe ? "bg-blue-800" : "bg-gray-300"
+              }`}
             >
               <div
-                className={`w-4 h-4 bg-white rounded-full shadow-md transform transition-all duration-300 ${rememberMe ? "translate-x-5" : "translate-x-0"}`}
+                className={`w-4 h-4 bg-white rounded-full shadow-md transform transition-all duration-300 ${
+                  rememberMe ? "translate-x-5" : "translate-x-0"
+                }`}
               ></div>
             </div>
-            <span className="ml-3 text-gray-700">I agree to all terms and conditions</span>
+            <span className="ml-3 text-gray-700">
+              I agree to all terms and conditions
+            </span>
           </div>
 
           <button
-        type="submit"
-        className="w-full flex items-center justify-center bg-blue-900 text-white py-3 rounded-full text-lg font-semibold hover:bg-blue-800 transition"
-        style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "16px", fontWeight: 600 }}
-         >
-        <img
-        src="/assets/logos/logosite.png"  
-    alt="Logo"
-    className="mr-2 w-6 h-6"  
-      />
-      Sign Up
-     </button>
-
+            type="submit"
+            className="w-full flex items-center justify-center bg-blue-900 text-white py-3 rounded-full text-lg font-semibold hover:bg-blue-800 transition"
+            style={{
+              fontFamily: "'Montserrat', sans-serif",
+              fontSize: "16px",
+              fontWeight: 600,
+            }}
+          >
+            <img
+              src="/assets/logos/logosite.png"
+              alt="Logo"
+              className="mr-2 w-6 h-6"
+            />
+            Sign Up
+          </button>
         </form>
 
         <p className="text-center mt-4 text-gray-600">

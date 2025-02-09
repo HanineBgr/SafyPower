@@ -14,13 +14,13 @@ const MapComponent = dynamic(() => import("../../components/map"), {
   ssr: false,
 });
 
-const HomeScreen: React.FC = () => {
+const HomeScreen = () => {
   const [selectedStation, setSelectedStation] = useState("Station 1");
 
   // List of available stations
   const stations = ["Station 1", "Station 2", "Station 3", "Station 4"];
 
-  const handleStationChange = (station: string) => {
+  const handleStationChange = (station) => {
     console.log(`Selected Station: ${station}`);
     setSelectedStation(station); // Update the state with the selected station
   };

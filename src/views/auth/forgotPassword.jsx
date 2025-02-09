@@ -5,11 +5,11 @@ import Link from "next/link";
 import "@fontsource/baloo-chettan-2";
 import "@fontsource/montserrat";
 
-const ForgotPasswordForm: React.FC = () => {
+const ForgotPasswordForm = () => {
   const [email, setEmail] = useState("");
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     // Simple validation
@@ -30,7 +30,7 @@ const ForgotPasswordForm: React.FC = () => {
     >
       <div className="bg-white p-8 rounded-2xl shadow-xl w-96 h-[400px] flex flex-col justify-between pt-8">
         <h2
-          className="text-[32px] font-bold text-black text-center mb-2"  // Reduced margin bottom here
+          className="text-[32px] font-bold text-black text-center mb-2"
           style={{ fontFamily: "'Baloo Chettan 2', sans-serif" }}
         >
           Forgot Password
@@ -38,7 +38,7 @@ const ForgotPasswordForm: React.FC = () => {
 
         <form onSubmit={handleSubmit}>
           {/* Email input field */}
-          <div className="mb-3">  {}
+          <div className="mb-3">
             <input
               type="email"
               placeholder="Type your email"

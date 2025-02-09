@@ -12,12 +12,12 @@ const ProfileScreen = () => {
       {/* Sidebar */}
       <Sidebar />
 
-      {/* Main Content */}
-      <div className="flex-1 p-8 overflow-auto">
+      {/* Main Content with Custom Scrollbar */}
+      <div className="flex-1 p-8 overflow-auto scrollbar-thin">
         {/* Top Section: Profile Card and Invoices */}
         <div className="grid grid-cols-3 gap-6">
           {/* Profile Card */}
-          <div className="col-span-2 -ml-40"> 
+          <div className="col-span-2 -ml-40">
             <ProfileCard />
           </div>
 
@@ -28,11 +28,11 @@ const ProfileScreen = () => {
         </div>
 
         {/* Payment Methods Section */}
-        <div className="mt-6 -ml-[505px]"> {/* Line 30: Adjusted margin-left to extreme left */}
-
+        <div className="mt-6 -ml-[505px]">
           <PaymentCards />
         </div>
 
+        {/* Bottom Section: Billing Info and Feedback */}
         <div className="mt-6 grid grid-cols-3 gap-6">
           {/* Billing Information */}
           <div className="col-span-2">
