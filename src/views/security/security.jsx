@@ -1,6 +1,6 @@
 import React from "react";
-import Sidebar from "../components/sidebar";
-import ChangeStationButton from "../components/switchbutton";
+import Sidebar from "../../components/sidebar";
+import ChangeStationButton from "../../components/switchbutton";
 import {
   FaPlug,
   FaTemperatureHigh,
@@ -86,11 +86,9 @@ const SecurityDashboard = () => {
         {/* Boxes Grid */}
         <div className="grid grid-cols-3 gap-6">
           {boxes.map((box) => {
-            // Determine color for "prise" icon
             const plugIconColor =
               box.status === "Prise alimentée" ? "text-green-600" : "text-black";
 
-            // Determine color for "temperature" icon
             let temperatureIconColor = "text-black";
             const tempValue = parseFloat(box.temperature);
             if (tempValue > 30) {

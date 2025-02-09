@@ -3,7 +3,7 @@ import { FaPen } from "react-icons/fa";
 
 const PaymentCards = () => {
   return (
-    <div className="bg-white p-3 rounded-lg shadow-md max-w-lg mx-auto">
+    <div className="bg-white p-3 rounded-lg shadow-md mx-auto" style={{ width: '500px' }}> {/* Manually adjustable width */}
       <div className="grid grid-cols-2 gap-4">
         {/* Amex */}
         <div className="flex items-center justify-between bg-[#f4f9ff] p-2 rounded-md shadow-sm h-12">

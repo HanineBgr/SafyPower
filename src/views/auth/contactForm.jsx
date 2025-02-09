@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaPhoneAlt, FaCheckCircle } from "react-icons/fa";
-import { Bell, Settings } from "lucide-react";
 import Sidebar from "../../components/sidebar";
+import TopBlueBar from "../../components/topbar"; 
 
 const ContactForm = () => {
   const [showAlert, setShowAlert] = useState(false);
@@ -38,19 +38,8 @@ const ContactForm = () => {
 
       {/* Main Content */}
       <div className="flex-1 bg-[#e0efff]">
-        {/* Top Blue Row */}
-        <div className="bg-blue-200 mx-auto mt-4 rounded-lg flex justify-between items-center px-8 py-6 shadow-md relative z-10 w-[85%] max-w-[1400px]">
-          <h1 className="text-xl font-bold text-gray-900">SafyPower</h1>
-          <div className="flex items-center gap-4">
-            <Settings className="w-5 h-5 text-gray-600 cursor-pointer hover:text-gray-800" />
-            <div className="relative">
-              <Bell className="w-5 h-5 text-gray-600 cursor-pointer hover:text-gray-800" />
-              <span className="absolute top-0 right-0 bg-red-600 text-white text-xs w-3 h-3 rounded-full flex items-center justify-center">
-                •
-              </span>
-            </div>
-          </div>
-        </div>
+        {/* Top Blue Bar */}
+        <TopBlueBar />
 
         {/* Contact Form Section */}
         <div className="flex justify-center items-center p-8 relative -mt-[60] z-20">
@@ -65,7 +54,6 @@ const ContactForm = () => {
               />
             </div>
 
-            {/* Left Side - Contact Form */}
             <div className="w-3/5 p-4">
               {/* Header */}
               <div className="flex justify-between items-center">

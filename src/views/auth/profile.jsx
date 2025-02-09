@@ -15,32 +15,32 @@ const ProfileScreen = () => {
       {/* Main Content with Custom Scrollbar */}
       <div className="flex-1 p-8 overflow-auto scrollbar-thin">
         {/* Top Section: Profile Card and Invoices */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 gap-4">
           {/* Profile Card */}
           <div className="col-span-2 -ml-40">
             <ProfileCard />
           </div>
 
           {/* Invoices Card */}
-          <div>
+          <div className="-ml-48">
             <InvoicesCard />
           </div>
         </div>
 
         {/* Payment Methods Section */}
-        <div className="mt-6 -ml-[505px]">
+        <div className="mt-6 -ml-[564px]">
           <PaymentCards />
         </div>
 
-        {/* Bottom Section: Billing Info and Feedback */}
+        {/* Bottom Section: Billing Info Moved Slightly to the Left & Feedback on Right */}
         <div className="mt-6 grid grid-cols-3 gap-6">
-          {/* Billing Information */}
-          <div className="col-span-2">
+          {/* Billing Information (Moved Slightly to the Left) */}
+          <div className="ml-20"> {/* Adjusted to move BillingInfo slightly left */}
             <BillingInfo />
           </div>
 
           {/* Feedback Section */}
-          <div>
+          <div className="col-span-2 flex justify-end">
             <FeedbackSection />
           </div>
         </div>

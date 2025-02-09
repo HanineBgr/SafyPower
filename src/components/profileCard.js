@@ -3,12 +3,12 @@ import { FaPen } from "react-icons/fa";
 
 const ProfileCard = () => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto">
+    <div className="bg-white p-6 rounded-lg shadow-md mx-auto" style={{ maxWidth: '500px', height: '170px' }}>
       {/* Header Section */} 
       <div className="flex items-center justify-between">
         {/* Profile Image and Info */}
         <div className="flex items-center gap-4">
-        <img src="/assets/logos/logo.png" alt="Logo" className="w-12 h-12" />
+          <img src="/assets/logos/logo.png" alt="Logo" className="w-12 h-12" />
 
           <div>
             <h2 className="text-lg font-bold">Hanine Bouguerra</h2>
@@ -17,7 +17,7 @@ const ProfileCard = () => {
         </div>
         {/* Edit Icon */}
         <FaPen className="text-gray-500 cursor-pointer text-sm" />
-        </div>
+      </div>
 
       {/* Buttons Section */}
       <div className="flex mt-6 gap-4">
