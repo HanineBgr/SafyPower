@@ -85,46 +85,65 @@ const SecurityDashboard = () => {
 
         {/* Boxes Grid */}
         <div className="grid grid-cols-3 gap-6">
-          {boxes.map((box) => (
-            <div key={box.id} className="bg-white rounded-2xl shadow-md p-6 flex flex-col gap-4">
-              <div className="flex items-center justify-between">
-                <div className="w-5 h-5 bg-gray-300 text-gray-800 flex items-center justify-center rounded-full">
-                  <span className="text-[10px] font-bold">{box.id}</span>
+          {boxes.map((box) => {
+            // Determine color for "prise" icon
+            const plugIconColor =
+              box.status === "Prise alimentée" ? "text-green-600" : "text-black";
+
+            // Determine color for "temperature" icon
+            let temperatureIconColor = "text-black";
+            const tempValue = parseFloat(box.temperature);
+            if (tempValue > 30) {
+              temperatureIconColor = "text-red-600";
+            } else if (tempValue > 27) {
+              temperatureIconColor = "text-orange-300";
+            }
+
+            return (
+              <div key={box.id} className="bg-white rounded-2xl shadow-md p-6 flex flex-col gap-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-5 h-5 bg-gray-300 text-gray-800 flex items-center justify-center rounded-full">
+                    <span className="text-[10px] font-bold">{box.id}</span>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center">
-                <div className="w-6 h-6 bg-blue-100 text-blue-600 flex items-center justify-center rounded-full mr-2">
-                  <FaPlug className="w-3 h-3" />
-                </div>
-                <span className="text-sm">{box.status}</span>
-                <input type="checkbox" checked={box.switch1} className="toggle-switch w-8 h-4 rounded-full ml-auto" />
-              </div>
-              <div className="flex items-center">
-                <div className="w-6 h-6 bg-orange-100 text-orange-600 flex items-center justify-center rounded-full mr-2">
-                  <FaTemperatureHigh className="w-3 h-3" />
-                </div>
-                <span className="text-sm">{box.temperature}</span>
-                <input type="checkbox" checked={box.switch2} className="toggle-switch w-8 h-4 rounded-full ml-auto" />
-              </div>
-              <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <div
-                    className={`w-6 h-6 flex items-center justify-center rounded-full mr-2 ${
-                      box.smokeDetector ? "bg-green-100 text-green-600" : "bg-red-100 text-red-600"
-                    }`}
+                    className={`w-6 h-6 bg-blue-100 flex items-center justify-center rounded-full mr-2 ${plugIconColor}`}
                   >
-                    {box.smokeDetector ? <FaShieldAlt className="w-3 h-3" /> : <FaFireAlt className="w-3 h-3" />}
+                    <FaPlug className="w-3 h-3" />
                   </div>
-                  <span className="text-sm">
-                    {box.smokeDetector ? "Détecteur de fumée" : "Alerte de fumée"}
-                  </span>
+                  <span className="text-sm">{box.status}</span>
+                  <input type="checkbox" checked={box.switch1} className="toggle-switch w-8 h-4 rounded-full ml-auto" />
                 </div>
-                {!box.smokeDetector && box.temperature === "31.8 °C" && (
-                  <FaExclamationTriangle className="w-5 h-5 text-red-600 ml-auto" />
-                )}
+                <div className="flex items-center">
+                  <div
+                    className={`w-6 h-6 bg-orange-100 flex items-center justify-center rounded-full mr-2 ${temperatureIconColor}`}
+                  >
+                    <FaTemperatureHigh className="w-3 h-3" />
+                  </div>
+                  <span className="text-sm">{box.temperature}</span>
+                  <input type="checkbox" checked={box.switch2} className="toggle-switch w-8 h-4 rounded-full ml-auto" />
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <div
+                      className={`w-6 h-6 flex items-center justify-center rounded-full mr-2 ${
+                        box.smokeDetector ? "bg-green-100 text-green-600" : "bg-red-100 text-red-600"
+                      }`}
+                    >
+                      {box.smokeDetector ? <FaShieldAlt className="w-3 h-3" /> : <FaFireAlt className="w-3 h-3" />}
+                    </div>
+                    <span className="text-sm">
+                      {box.smokeDetector ? "Détecteur de fumée" : "Alerte de fumée"}
+                    </span>
+                  </div>
+                  {!box.smokeDetector && box.temperature === "31.8 °C" && (
+                    <FaExclamationTriangle className="w-5 h-5 text-red-600 ml-auto" />
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
