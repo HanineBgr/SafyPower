@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import Sidebar from "../../components/sidebar";
-import SearchBar from "../../components/searchbar";
-import ProfileSection from "../../components/profileSection";
-import ChangeStationButton from "../../components/switchbutton";
-import AvailableStationsChart from "../../components/availableStationChart";
-import UsedStationsChart from "../../components/usedStations";
-import TotalVisitsChart from "../../components/TotalVisitsChart";
-import TrackingUser from "../../components/TrackingUser"; 
-import StationUsagePieChart from "../../components/DonutChart";
+import Sidebar from "../../components/layout/sidebar";
+import SearchBar from "../../components/layout/searchbar";
+import ProfileSection from "../../components/cards/profileSection";
+import ChangeStationButton from "../../components/buttons/switchbutton";
+import AvailableStationsChart from "../../components/charts/availableStationChart";
+import UsedStationsChart from "../../components/charts/usedStations";
+import TotalVisitsChart from "../../components/charts/TotalVisitsChart";
+import TrackingUser from "../../components/cards/TrackingUser"; 
+import StationUsagePieChart from "../../components/charts/DonutChart";
 import dynamic from "next/dynamic";
 
-const MapComponent = dynamic(() => import("../../components/map"), {
+const MapComponent = dynamic(() => import("../../components/cards/map"), {
   ssr: false,
 });
 
@@ -22,7 +22,7 @@ const HomeScreen = () => {
 
   const handleStationChange = (station) => {
     console.log(`Selected Station: ${station}`);
-    setSelectedStation(station); // Update the state with the selected station
+    setSelectedStation(station); 
   };
 
   return (

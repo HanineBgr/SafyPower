@@ -1,10 +1,10 @@
 import React from "react";
-import Sidebar from "../../components/sidebar";
-import ProfileCard from "../../components/profileCard";
-import InvoicesCard from "../../components/invoicesCard";
-import FeedbackSection from "../../components/Feedback";
-import BillingInfo from "../../components/BillingInfo";
-import PaymentCards from "../../components/paymentCard";
+import Sidebar from "../../components/layout/sidebar";
+import ProfileCard from "../../components/cards/profileCard";
+import InvoicesCard from "../../components/cards/invoicesCard";
+import FeedbackSection from "../../components/cards/Feedback";
+import BillingInfo from "../../components/cards/BillingInfo";
+import PaymentCards from "../../components/cards/paymentCard";
 
 const ProfileScreen = () => {
   return (

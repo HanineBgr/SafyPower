@@ -1,6 +1,6 @@
 import React from "react";
-import Sidebar from "../../components/sidebar";
-import ChangeStationButton from "../../components/switchbutton";
+import Sidebar from "../../components/layout/sidebar";
+import ChangeStationButton from "../../components/buttons/switchbutton";
 import {
   FaPlug,
   FaTemperatureHigh,

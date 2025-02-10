@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaPhoneAlt, FaCheckCircle } from "react-icons/fa";
-import Sidebar from "../../components/sidebar";
-import TopBlueBar from "../../components/topbar"; 
+import Sidebar from "../../components/layout/sidebar";
+import TopBlueBar from "../../components/layout/topbar"; 
 
 const ContactForm = () => {
   const [showAlert, setShowAlert] = useState(false);

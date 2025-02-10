@@ -3,11 +3,12 @@ import { ChevronDown } from "lucide-react";
 
 const ChangeStationButton = ({ stations, onStationChange, className }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedStation, setSelectedStation] = useState(stations[0]); 
+  const [selectedStation, setSelectedStation] = useState(stations[0]);
+
   const handleStationSelect = (station) => {
     setSelectedStation(station);
     setIsOpen(false);
-    onStationChange(station); 
+    onStationChange(station);
   };
 
   return (
