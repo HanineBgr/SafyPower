@@ -17,30 +17,35 @@ const ProfileScreen = () => {
         {/* Top Section: Profile Card and Invoices */}
         <div className="grid grid-cols-3 gap-4">
           {/* Profile Card */}
-          <div className="col-span-2 -ml-40">
+          <div className="col-span-2 -ml-36">
             <ProfileCard />
           </div>
 
           {/* Invoices Card */}
-          <div className="-ml-48">
+          <div
+            className="-ml-56"
+            style={{
+              width: "582px", 
+            }}
+          >
             <InvoicesCard />
           </div>
         </div>
 
         {/* Payment Methods Section */}
-        <div className="mt-6 -ml-[564px]">
+        <div className="mt-6 -ml-[500px]">
           <PaymentCards />
         </div>
 
-        {/* Bottom Section: Billing Info Moved Slightly to the Left & Feedback on Right */}
-        <div className="mt-6 grid grid-cols-3 gap-6">
-          {/* Billing Information (Moved Slightly to the Left) */}
-          <div className="ml-20"> {/* Adjusted to move BillingInfo slightly left */}
+        {/* Bottom Section: Billing Info & Feedback */}
+        <div className="mt-6 grid grid-cols-3 gap-6 relative">
+          {/* Billing Information */}
+          <div className="ml-20">
             <BillingInfo />
           </div>
 
           {/* Feedback Section */}
-          <div className="col-span-2 flex justify-end">
+          <div className="absolute right-8 -mt-24">
             <FeedbackSection />
           </div>
         </div>

@@ -124,7 +124,7 @@ const ProfileCard = () => {
               <span className="font-bold">Mobile phone:</span> +33 656 64 14 18
             </p>
             <p className="text-gray-800">
-              <span className="font-bold">Email:</span> email.mail@gmail.fr
+              <span className="font-bold">Email:</span> omar.hip@gmail.fr
             </p>
             <p className="text-gray-800">
               <span className="font-bold">Address:</span> 23 voie du succès 3000
