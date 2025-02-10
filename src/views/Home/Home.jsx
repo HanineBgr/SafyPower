@@ -30,14 +30,12 @@ const HomeScreen = () => {
       {/* Sidebar */}
       <Sidebar />
 
-      {/* Main Content with Custom Scrollbar */}
       <div className="flex-1 p-6 ml-[64px] bg-[#e0efff] overflow-auto scrollbar-thin scrollbar-track-gray-200 scrollbar-thumb-[#e6e78b] scrollbar-thumb-rounded-md">
         <div className="flex items-center gap-4">
           <h1 className="text-3xl font-bold text-gray-800">SafyPower</h1>
           <SearchBar />
         </div>
 
-        {/* ✅ Move ChangeStationButton Down */}
         <div className="mt-4">
           <ChangeStationButton
             stations={stations}
@@ -46,7 +44,6 @@ const HomeScreen = () => {
           />
         </div>
 
-        {/* ✅ Reduced margin-top from `mt-6` to `mt-3` to decrease space */}
         <div className="mt-3 flex">
           <div className="flex-1 pr-10 ml-4">
             <AvailableStationsChart />

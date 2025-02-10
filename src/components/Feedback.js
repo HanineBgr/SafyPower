@@ -101,7 +101,6 @@ const FeedbackSection = () => {
             className="p-4 bg-blue-50 rounded-lg shadow flex flex-col space-y-3"
           >
             <div className="flex items-start space-x-4">
-              {/* Profile Avatar */}
               <div
                 className="rounded-full flex items-center justify-center"
                 style={{
@@ -116,7 +115,6 @@ const FeedbackSection = () => {
                 {feedback.name[0]}
               </div>
 
-              {/* Feedback Content */}
               <div className="flex-1">
                 <h3 className="text-base font-bold text-gray-800">
                   {feedback.name}
@@ -128,7 +126,6 @@ const FeedbackSection = () => {
                 </div>
               </div>
 
-              {/* Actions */}
               <div className="flex flex-col items-center space-y-3">
                 <button
                   className="text-gray-500 hover:text-gray-700"
@@ -151,7 +148,6 @@ const FeedbackSection = () => {
               </div>
             </div>
 
-            {/* Reply Section */}
             {replyingTo === feedback.id && (
               <div className="mt-2 flex items-center bg-white rounded-lg p-2 shadow">
                 <textarea
@@ -162,19 +158,18 @@ const FeedbackSection = () => {
                   onChange={(e) => setReplyText(e.target.value)}
                   style={{
                     resize: "none",
-                    height: "28px", // Reduced height
+                    height: "28px", 
                   }}
                 />
                 <button
                   className="ml-2 text-blue-500 hover:text-blue-700"
                   onClick={() => submitReply(feedback.id)}
                 >
-                  <Send size={16} /> {/* Smaller size and no circle */}
+                  <Send size={16} /> 
                 </button>
               </div>
             )}
 
-            {/* Display Replies */}
             {feedback.replies.length > 0 && (
               <div className="mt-2 space-y-2">
                 {feedback.replies.map((reply, index) => (

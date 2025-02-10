@@ -12,12 +12,12 @@ const data = [
 
 const AvailableStationsChart = () => {
   return (
-    <div className="bg-white p-4 rounded-3xl max-w-lg mt-6"> {/* Increased border-radius for more roundness */}
+    <div className="bg-white p-4 rounded-3xl max-w-lg mt-6"> 
       <div className="flex justify-between items-center px-4 pb-2">
         <h2 className="text-sm font-semibold text-gray-800">Available Stations</h2>
         <span className="text-gray-500 text-xs">per hour</span>
       </div>
-      <ResponsiveContainer width="100%" height={180}> {/* Reduced height */}
+      <ResponsiveContainer width="100%" height={180}> 
         <BarChart data={data} margin={{ top: 10, right: 20, left: 10, bottom: 10 }}>
           <XAxis dataKey="time" tick={{ fill: "#555", fontSize: 12 }} axisLine={false} tickLine={false} />
           <YAxis tick={{ fill: "#555", fontSize: 12 }} axisLine={false} tickLine={false} />

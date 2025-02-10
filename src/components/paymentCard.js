@@ -6,7 +6,6 @@ const PaymentCards = () => {
     <div className="bg-white p-3 rounded-lg shadow-md mx-auto" style={{ width: '550px' }}> {/* Augmented width */}
       <div className="grid grid-cols-2 gap-4">
         
-        {/* Amex */}
         <div className="flex items-center justify-between bg-[#f4f9ff] p-2 rounded-md shadow-sm h-12">
           <div className="flex items-center gap-4">
             <img

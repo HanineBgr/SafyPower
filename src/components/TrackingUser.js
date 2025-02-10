@@ -42,7 +42,6 @@ const TrackingUser = () => {
         Individual User Tracking
       </h2>
       <div className="overflow-y-auto max-h-[400px] scrollbar-thin">
-        {/* Custom scrollbar applied */}
         <table className="min-w-full table-auto">
           <thead>
             <tr>

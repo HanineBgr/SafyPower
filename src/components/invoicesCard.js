@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaPrint } from "react-icons/fa";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import "../styles/globals.css";
 
 const InvoicesCard = () => {
+  const [dates, setDates] = useState([]);
+
+  useEffect(() => {
+    setDates([...Array(10)].map(() => new Date().toLocaleString()));
+  }, []);
+
   const handleDownloadPDF = (invoiceId, amount) => {
     const doc = new jsPDF();
     const today = new Date().toLocaleString();
@@ -29,7 +35,6 @@ const InvoicesCard = () => {
     doc.text(`Date: ${today}`, 14, 71);
     doc.text(`Amount: $${amount}`, 14, 77);
 
-    // Add Table for Charging Details
     doc.autoTable({
       startY: 85,
       head: [["Charge ID", "Bike ID", "Duration (Hours)", "Rate (per Hour)", "Total"]],
@@ -46,14 +51,12 @@ const InvoicesCard = () => {
       },
     });
 
-    // Footer
     const finalY = doc.lastAutoTable.finalY || 100;
     doc.setFontSize(10);
     doc.setTextColor("#555");
     doc.text("Thank you for using EcoCharge Station!", 14, finalY + 10);
     doc.text("For inquiries, contact support@ecocharge.com.", 14, finalY + 16);
 
-    // Save the PDF
     doc.save(`Invoice_${invoiceId}.pdf`);
   };
 
@@ -76,7 +79,7 @@ const InvoicesCard = () => {
           return (
             <div key={i} className="flex flex-col py-2 border-b">
               <div className="flex justify-between items-center">
-                <p className="text-xs text-gray-600">Date: {new Date().toLocaleString()}</p>
+                <p className="text-xs text-gray-600">Date: {dates[i] || "Loading..."}</p>
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-gray-800 font-medium">$ {amount}</span>
                   <button

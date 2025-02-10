@@ -29,6 +29,7 @@ const Sidebar = () => {
             }`}
           />
         </button>
+        {/* profile Item */}
         <button
           className={`p-2 rounded-full flex items-center justify-center shadow-md ${
             isActive("/auth/profile") ? "bg-[#fedd69]" : "bg-gray-100"
@@ -41,6 +42,7 @@ const Sidebar = () => {
             }`}
           />
         </button>
+        {/* contact form item */}
         <button
           className={`p-2 rounded-full flex items-center justify-center shadow-md ${
             isActive("/auth/contactForm") ? "bg-[#fedd69]" : "bg-gray-100"
@@ -53,7 +55,7 @@ const Sidebar = () => {
             }`}
           />
         </button>
-        {/* Battery Icon Button */}
+        {/* Battery Item */}
         <button
           className={`p-2 rounded-full flex items-center justify-center shadow-md ${
             isActive("/security") ? "bg-[#fedd69]" : "bg-gray-100"

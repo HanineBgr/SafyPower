@@ -38,7 +38,7 @@ const TotalVisitsChart = () => {
             stroke="#888"
             tickLine={false}
             axisLine={false}
-            tick={{ fontSize: 10 }} // Reduce the font size of the Y axis labels
+            tick={{ fontSize: 10 }}
           />
           <Tooltip content={<CustomTooltip />} />
           <Area

@@ -12,7 +12,6 @@ const ProfileScreen = () => {
       {/* Sidebar */}
       <Sidebar />
 
-      {/* Main Content with Custom Scrollbar */}
       <div className="flex-1 p-8 overflow-auto scrollbar-thin">
         {/* Top Section: Profile Card and Invoices */}
         <div className="grid grid-cols-3 gap-4">
@@ -37,7 +36,6 @@ const ProfileScreen = () => {
           <PaymentCards />
         </div>
 
-        {/* Bottom Section: Billing Info & Feedback */}
         <div className="mt-6 grid grid-cols-3 gap-6 relative">
           {/* Billing Information */}
           <div className="ml-20">

@@ -3,7 +3,7 @@ import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 const containerStyle = {
   width: "100%",
-  height: "250px", // Reduced height
+  height: "250px", 
   borderRadius: "12px",
   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
   overflow: "hidden",
@@ -13,14 +13,14 @@ const wrapperStyle = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  justifyContent: "flex-start", // Align content at the top
+  justifyContent: "flex-start", 
   backgroundColor: "#fff",
-  padding: "16px", // Slightly reduced padding
+  padding: "16px", 
   borderRadius: "12px",
   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
   marginTop: "20px",
   width: "100%",
-  maxWidth: "300px", // Reduced width
+  maxWidth: "300px", 
   height: "auto",
 };
 
@@ -56,12 +56,12 @@ const MapComponent = () => {
     <div style={wrapperStyle}>
       <h2
         style={{
-          textAlign: "left", // Align text to the left
+          textAlign: "left", 
           fontSize: "16px",
           color: "#333",
           marginBottom: "10px",
           fontWeight: "600",
-          width: "100%", // Ensures the title spans the width of the container
+          width: "100%", 
         }}
       >
         Maps

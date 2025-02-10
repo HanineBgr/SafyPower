@@ -43,9 +43,7 @@ const ContactForm = () => {
 
         {/* Contact Form Section */}
         <div className="flex justify-center items-center p-8 relative -mt-[60] z-20">
-          {/* Centered Form */}
           <div className="bg-[#f4f9ff] rounded-xl shadow-md w-[90%] max-w-[800px] p-6 flex flex-row-reverse items-center">
-            {/* Right Side - Image */}
             <div className="w-2/5 flex justify-center items-center">
               <img
                 src="/assets/Contact.png"

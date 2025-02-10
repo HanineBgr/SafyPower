@@ -12,7 +12,7 @@ const ForgotPasswordForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Simple validation
+    //  validation
     if (!email) {
       setError("Please enter your email.");
     } else if (!/\S+@\S+\.\S+/.test(email)) {
