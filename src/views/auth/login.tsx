@@ -3,24 +3,30 @@
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 import "@fontsource/baloo-chettan-2";
 import "@fontsource/montserrat";
 
-const LoginForm = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
-  const [errors, setErrors] = useState({});
+// Define type for form errors
+type FormErrors = {
+  email?: string;
+  password?: string;
+};
+
+const LoginForm: React.FC = () => {
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [rememberMe, setRememberMe] = useState<boolean>(false);
+  const [errors, setErrors] = useState<FormErrors>({});
   const router = useRouter();
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
   const toggleRememberMe = () => setRememberMe(!rememberMe);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    let formErrors = {};
+    let formErrors: FormErrors = {};
 
     if (!email) {
       formErrors.email = "Please enter your email.";
@@ -29,15 +35,14 @@ const LoginForm = () => {
     }
 
     if (!password) {
-      formErrors.password = "Please enter your password";
+      formErrors.password = "Please enter your password.";
     }
 
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
     } else {
       setErrors({});
-      
-      router.push("/home"); 
+      router.push("/home");
     }
   };
 
@@ -61,7 +66,7 @@ const LoginForm = () => {
               placeholder="Type your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className={`w-full p-3 border-b ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:border-blue-500`}
+              className={`w-full p-3 border-b ${errors.email ? "border-red-500" : "border-gray-300"} focus:outline-none focus:border-blue-500`}
             />
             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
           </div>
@@ -72,7 +77,7 @@ const LoginForm = () => {
               placeholder="Type password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className={`w-full p-3 border-b ${errors.password ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:border-blue-500`}
+              className={`w-full p-3 border-b ${errors.password ? "border-red-500" : "border-gray-300"} focus:outline-none focus:border-blue-500`}
             />
             <span
               className="absolute right-3 top-3 text-gray-600 cursor-pointer"
@@ -85,10 +90,14 @@ const LoginForm = () => {
 
           <div className="flex items-center mb-6 cursor-pointer" onClick={toggleRememberMe}>
             <div
-              className={`w-10 h-5 rounded-full p-1 flex items-center transition-all duration-300 ${rememberMe ? "bg-blue-800" : "bg-gray-300"}`}
+              className={`w-10 h-5 rounded-full p-1 flex items-center transition-all duration-300 ${
+                rememberMe ? "bg-blue-800" : "bg-gray-300"
+              }`}
             >
               <div
-                className={`w-4 h-4 bg-white rounded-full shadow-md transform transition-all duration-300 ${rememberMe ? "translate-x-5" : "translate-x-0"}`}
+                className={`w-4 h-4 bg-white rounded-full shadow-md transform transition-all duration-300 ${
+                  rememberMe ? "translate-x-5" : "translate-x-0"
+                }`}
               ></div>
             </div>
             <span className="ml-3 text-gray-700">Remember me</span>
@@ -99,11 +108,7 @@ const LoginForm = () => {
             className="w-full flex items-center justify-center bg-blue-900 text-white py-3 rounded-full text-lg font-semibold hover:bg-blue-800 transition"
             style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "16px", fontWeight: 600 }}
           >
-            <img
-              src="/assets/logos/logosite.png"
-              alt="Logo"
-              className="mr-2 w-6 h-6"
-            />
+            <img src="/assets/logos/logosite.png" alt="Logo" className="mr-2 w-6 h-6" />
             Login
           </button>
         </form>
@@ -115,9 +120,9 @@ const LoginForm = () => {
           </Link>
         </p>
         <p className="text-center mt-2 text-gray-600">
-          <a href="/auth/forgotPassword" className="text-blue-600 hover:underline">
+          <Link href="/auth/forgotPassword" className="text-blue-600 hover:underline">
             Forgot password?
-          </a>
+          </Link>
         </p>
       </div>
     </div>

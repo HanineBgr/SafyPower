@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Sidebar from "../../components/layout/sidebar";
 import ProfileCard from "../../components/cards/profileCard";
@@ -6,7 +8,7 @@ import FeedbackSection from "../../components/cards/Feedback";
 import BillingInfo from "../../components/cards/BillingInfo";
 import PaymentCards from "../../components/cards/paymentCard";
 
-const ProfileScreen = () => {
+const ProfileScreen: React.FC = () => {
   return (
     <div className="flex h-screen bg-[#e0efff]">
       {/* Sidebar */}
@@ -14,36 +16,32 @@ const ProfileScreen = () => {
 
       <div className="flex-1 p-8 overflow-auto scrollbar-thin">
         {/* Top Section: Profile Card and Invoices */}
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Profile Card */}
-          <div className="col-span-2 -ml-36">
+          <div className="md:col-span-2">
             <ProfileCard />
           </div>
 
           {/* Invoices Card */}
-          <div
-            className="-ml-56"
-            style={{
-              width: "582px", 
-            }}
-          >
+          <div className="md:w-[582px] md:ml-auto">
             <InvoicesCard />
           </div>
         </div>
 
         {/* Payment Methods Section */}
-        <div className="mt-6 -ml-[500px]">
+        <div className="mt-6 flex justify-center md:justify-start">
           <PaymentCards />
         </div>
 
-        <div className="mt-6 grid grid-cols-3 gap-6 relative">
+        {/* Billing & Feedback Section */}
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Billing Information */}
-          <div className="ml-20">
+          <div className="md:ml-8">
             <BillingInfo />
           </div>
 
           {/* Feedback Section */}
-          <div className="absolute right-8 -mt-24">
+          <div className="md:ml-auto">
             <FeedbackSection />
           </div>
         </div>

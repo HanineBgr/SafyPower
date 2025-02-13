@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import Sidebar from "../../components/layout/sidebar";
 import SearchBar from "../../components/layout/searchbar";
@@ -6,7 +8,7 @@ import ChangeStationButton from "../../components/buttons/switchbutton";
 import AvailableStationsChart from "../../components/charts/availableStationChart";
 import UsedStationsChart from "../../components/charts/usedStations";
 import TotalVisitsChart from "../../components/charts/TotalVisitsChart";
-import TrackingUser from "../../components/cards/TrackingUser"; 
+import TrackingUser from "../../components/cards/TrackingUser";
 import StationUsagePieChart from "../../components/charts/DonutChart";
 import dynamic from "next/dynamic";
 
@@ -14,15 +16,15 @@ const MapComponent = dynamic(() => import("../../components/cards/map"), {
   ssr: false,
 });
 
-const HomeScreen = () => {
-  const [selectedStation, setSelectedStation] = useState("Station 1");
+const HomeScreen: React.FC = () => {
+  const [selectedStation, setSelectedStation] = useState<string>("Station 1");
 
   // List of available stations
-  const stations = ["Station 1", "Station 2", "Station 3", "Station 4"];
+  const stations: string[] = ["Station 1", "Station 2", "Station 3", "Station 4"];
 
-  const handleStationChange = (station) => {
+  const handleStationChange = (station: string): void => {
     console.log(`Selected Station: ${station}`);
-    setSelectedStation(station); 
+    setSelectedStation(station);
   };
 
   return (
@@ -36,6 +38,7 @@ const HomeScreen = () => {
           <SearchBar />
         </div>
 
+        {/* Station Switch Button */}
         <div className="mt-4">
           <ChangeStationButton
             stations={stations}
@@ -44,6 +47,7 @@ const HomeScreen = () => {
           />
         </div>
 
+        {/* Available & Used Stations Charts */}
         <div className="mt-3 flex">
           <div className="flex-1 pr-10 ml-4">
             <AvailableStationsChart />
@@ -54,6 +58,7 @@ const HomeScreen = () => {
           </div>
         </div>
 
+        {/* Total Visits & Station Usage Pie Chart */}
         <div className="mt-6 flex gap-6">
           <div className="flex-1 h-[300px] max-w-[70%] ml-4">
             <TotalVisitsChart />
@@ -64,12 +69,12 @@ const HomeScreen = () => {
           </div>
         </div>
 
-        {/* Tracking User and Map Section */}
+        {/* Tracking User & Map Section */}
         <div className="mt-6 flex gap-6">
-          <div className="flex-1 h-[auto] max-w-[70%] ml-4">
+          <div className="flex-1 h-auto max-w-[70%] ml-4">
             <TrackingUser />
           </div>
-          <div className="flex-1 h-[auto] max-w-[30%] -mt-5">
+          <div className="flex-1 h-auto max-w-[30%] -mt-5">
             <MapComponent />
           </div>
         </div>

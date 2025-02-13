@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Sidebar from "../../components/layout/sidebar";
 import ChangeStationButton from "../../components/buttons/switchbutton";
@@ -9,14 +11,25 @@ import {
   FaExclamationTriangle,
 } from "react-icons/fa";
 
-const SecurityDashboard = () => {
-  const stations = ["Station1", "Station2", "Station3"];
+type Station = string;
 
-  const handleStationChange = (station) => {
+type Box = {
+  id: number;
+  status: string;
+  temperature: string;
+  smokeDetector: boolean;
+  switch1: boolean;
+  switch2: boolean;
+};
+
+const SecurityDashboard: React.FC = () => {
+  const stations: Station[] = ["Station1", "Station2", "Station3"];
+
+  const handleStationChange = (station: Station): void => {
     console.log(`Selected Station: ${station}`);
   };
 
-  const boxes = [
+  const boxes: Box[] = [
     {
       id: 1,
       status: "Prise alimentée",
@@ -79,7 +92,7 @@ const SecurityDashboard = () => {
           <ChangeStationButton stations={stations} onStationChange={handleStationChange} />
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium">ON</span>
-            <input type="checkbox" checked className="toggle-switch w-8 h-4 rounded-full" />
+            <input type="checkbox" checked readOnly className="toggle-switch w-8 h-4 rounded-full" />
           </div>
         </div>
 
@@ -111,7 +124,7 @@ const SecurityDashboard = () => {
                     <FaPlug className="w-3 h-3" />
                   </div>
                   <span className="text-sm">{box.status}</span>
-                  <input type="checkbox" checked={box.switch1} className="toggle-switch w-8 h-4 rounded-full ml-auto" />
+                  <input type="checkbox" checked={box.switch1} readOnly className="toggle-switch w-8 h-4 rounded-full ml-auto" />
                 </div>
                 <div className="flex items-center">
                   <div
@@ -120,7 +133,7 @@ const SecurityDashboard = () => {
                     <FaTemperatureHigh className="w-3 h-3" />
                   </div>
                   <span className="text-sm">{box.temperature}</span>
-                  <input type="checkbox" checked={box.switch2} className="toggle-switch w-8 h-4 rounded-full ml-auto" />
+                  <input type="checkbox" checked={box.switch2} readOnly className="toggle-switch w-8 h-4 rounded-full ml-auto" />
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">

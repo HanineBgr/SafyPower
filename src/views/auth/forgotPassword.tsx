@@ -5,14 +5,14 @@ import Link from "next/link";
 import "@fontsource/baloo-chettan-2";
 import "@fontsource/montserrat";
 
-const ForgotPasswordForm = () => {
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState(null);
+const ForgotPasswordForm: React.FC = () => {
+  const [email, setEmail] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    //  validation
+    // Validation
     if (!email) {
       setError("Please enter your email.");
     } else if (!/\S+@\S+\.\S+/.test(email)) {
@@ -44,7 +44,7 @@ const ForgotPasswordForm = () => {
               placeholder="Type your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className={`w-full p-3 border-b ${error ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:border-blue-500`}
+              className={`w-full p-3 border-b ${error ? "border-red-500" : "border-gray-300"} focus:outline-none focus:border-blue-500`}
             />
             {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
           </div>
@@ -55,11 +55,7 @@ const ForgotPasswordForm = () => {
             className="w-full flex items-center justify-center bg-blue-900 text-white py-3 rounded-full text-lg font-semibold hover:bg-blue-800 transition"
             style={{ fontFamily: "'Montserrat', sans-serif", fontSize: "16px", fontWeight: 600 }}
           >
-            <img
-              src="/assets/logos/logosite.png"  
-              alt="Logo"
-              className="mr-2 w-6 h-6"  
-            />
+            <img src="/assets/logos/logosite.png" alt="Logo" className="mr-2 w-6 h-6" />
             Send instructions
           </button>
         </form>

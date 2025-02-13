@@ -1,12 +1,14 @@
+"use client";
+
 import React, { useState } from "react";
 import { FaPhoneAlt, FaCheckCircle } from "react-icons/fa";
 import Sidebar from "../../components/layout/sidebar";
 import TopBlueBar from "../../components/layout/topbar"; 
 
-const ContactForm = () => {
-  const [showAlert, setShowAlert] = useState(false);
+const ContactForm: React.FC = () => {
+  const [showAlert, setShowAlert] = useState<boolean>(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setShowAlert(true);
 
@@ -39,7 +41,7 @@ const ContactForm = () => {
       {/* Main Content */}
       <div className="flex-1 bg-[#e0efff]">
         {/* Top Blue Bar */}
-        <TopBlueBar />
+        <TopBlueBar onBellClick={() => { console.log('Bell clicked'); }} />
 
         {/* Contact Form Section */}
         <div className="flex justify-center items-center p-8 relative -mt-[60] z-20">
@@ -89,7 +91,7 @@ const ContactForm = () => {
                     required
                   />
                   <textarea
-                    rows="3"
+                    rows={3}
                     placeholder="Type your message..."
                     className="col-span-2 border rounded-lg p-3 w-full text-sm"
                     required
