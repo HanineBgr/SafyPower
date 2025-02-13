@@ -4,7 +4,7 @@ SafyPower Dashboard is a prototype web application built using React & Next.js t
 
 ## ✨ Features
 
-- **Moder UI** : Responsive & sleek design based on the original dashboard.
+- **Modern UI** : Responsive & sleek design based on the original dashboard.
 - **Component-Based Architecture:** : Organized and scalable structure.
 - **Dynamic Pages** : Well-structured routing with Next.js
 
