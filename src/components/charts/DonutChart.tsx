@@ -17,8 +17,8 @@ const StationUsagePieChart: React.FC = () => {
         p: 2,
         borderRadius: 3,
         boxShadow: 3,
-        width: "280px", // Fixed width
-        height: "280px", // Fixed height
+        width: "340px", // Réduction de la largeur
+        height: "250px", // Réduction de la hauteur
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -35,14 +35,14 @@ const StationUsagePieChart: React.FC = () => {
 
         {/* Pie Chart Container */}
         <Box sx={{ position: "relative", display: "flex", justifyContent: "center" }}>
-          <ResponsiveContainer width={200} height={200}>
+          <ResponsiveContainer width={160} height={170}> 
             <PieChart>
               <Pie
                 data={data}
                 cx="50%"
                 cy="50%"
                 innerRadius={60}
-                outerRadius={85}
+                outerRadius={80}
                 startAngle={90}
                 endAngle={-270}
                 dataKey="value"

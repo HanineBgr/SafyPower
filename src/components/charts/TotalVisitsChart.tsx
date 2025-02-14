@@ -44,8 +44,8 @@ const TotalVisitsChart: React.FC = () => {
         p: 2,
         borderRadius: 3,
         boxShadow: 3,
-        width: "350px", // Fixed Width
-        height: "280px", // Fixed Height
+        width: "770px", 
+        height: "250px", 
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -60,7 +60,7 @@ const TotalVisitsChart: React.FC = () => {
         </Typography>
 
         {/* Chart Container */}
-        <Box sx={{ width: "100%", height: "85%" }}>
+        <Box sx={{ width: "100%", height: "105%" }}>
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={data}>
               <XAxis

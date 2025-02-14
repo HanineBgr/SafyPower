@@ -59,7 +59,7 @@ const HomeScreen: React.FC = () => {
         </div>
 
         {/* Total Visits & Station Usage Pie Chart */}
-        <div className="mt-6 flex gap-6">
+        <div className="mt-7 flex gap-4"> 
           <div className="flex-1 h-[300px] max-w-[70%] ml-4">
             <TotalVisitsChart />
           </div>
@@ -70,7 +70,7 @@ const HomeScreen: React.FC = () => {
         </div>
 
         {/* Tracking User & Map Section */}
-        <div className="mt-6 flex gap-6">
+        <div className="mt-[-20px] flex gap-4"> 
           <div className="flex-1 h-auto max-w-[70%] ml-4">
             <TrackingUser />
           </div>

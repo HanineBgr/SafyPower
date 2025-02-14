@@ -40,12 +40,11 @@ const renderStars = (rating: number) => {
 
 const TrackingUser: React.FC = () => {
   return (
-    <Card sx={{ p: 3, bgcolor: "white", boxShadow: 3, borderRadius: 3, maxWidth: "100%", mx: "auto" }}>
+    <Card sx={{ p: 3, bgcolor: "white", boxShadow: 3, borderRadius: 3, maxWidth: "99%", mx: "auto" }}>
       <Typography variant="h6" fontWeight="bold" color="text.primary" gutterBottom>
         Individual User Tracking
       </Typography>
 
-      {/* Scrollable Table directly inside the Card */}
       <TableContainer
         className="scrollbar-thin"
         sx={{

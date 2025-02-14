@@ -14,51 +14,49 @@ const data = [
   { time: "1 pm", stations: 5 },
 ];
 
-const UsedStationsChart: React.FC = () => {
+const AvailableStationsChart: React.FC = () => {
   return (
     <Card
       sx={{
         bgcolor: "white",
-        p: 2,
+        p: 1, 
         borderRadius: 3,
         boxShadow: 3,
-        width: "300px", // Fixed Width
-        height: "280px", // Fixed Height
+        width: "550px", 
+        height: "230px", 
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
+        justifyContent: "center",
         alignItems: "center",
         mx: "auto",
       }}
     >
-      <CardContent sx={{ width: "100%", height: "100%", p: 0 }}>
-        {/* Title Section */}
+      <CardContent sx={{ width: "100%", height: "100%", p: 1 }}>
         <Box display="flex" justifyContent="space-between" alignItems="center" px={1} pb={1}>
-          <Typography variant="subtitle1" fontWeight="bold">
-            Stations in use
+          <Typography variant="subtitle2" fontWeight="bold">
+            Available Stations
           </Typography>
           <Typography variant="body2" color="textSecondary">
             per hour
           </Typography>
         </Box>
 
-        {/* Chart Container */}
-        <Box sx={{ width: "100%", height: "85%" }}>
+        <Box sx={{ width: "100%", height: "90%" }}> 
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
-              <XAxis dataKey="time" tick={{ fill: "#555", fontSize: 12 }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fill: "#555", fontSize: 12 }} axisLine={false} tickLine={false} />
+            <BarChart data={data} margin={{ top: 10, right: 5, left: -20, bottom: 2 }}> 
+              <XAxis dataKey="time" tick={{ fill: "#555", fontSize: 10 }} axisLine={false} tickLine={false} />
+              <YAxis tick={{ fill: "#555", fontSize: 10 }} axisLine={false} tickLine={false} />
               <Tooltip
                 contentStyle={{
                   backgroundColor: "#fff",
                   borderColor: "#ddd",
                   borderWidth: 1,
                   borderRadius: 8,
-                  padding: "4px 8px",
-                  fontSize: "12px",
+                  padding: "2px 8px",
+                  fontSize: "10px",
                 }}
               />
-              <Bar dataKey="stations" fill="#FF698A" barSize={12} radius={[10, 10, 10, 10]} />
+              <Bar dataKey="stations" fill="#FF698A" barSize={12} radius={[8, 8, 8, 8]} />
             </BarChart>
           </ResponsiveContainer>
         </Box>
@@ -67,4 +65,4 @@ const UsedStationsChart: React.FC = () => {
   );
 };
 
-export default UsedStationsChart;
+export default AvailableStationsChart;

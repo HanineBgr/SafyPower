@@ -11,8 +11,8 @@ const SearchBar: React.FC = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        width: "350px", // Fixed Width
-        height: "40px", // Fixed Height
+        width: "650px", 
+        height: "40px", 
         bgcolor: "white",
         borderRadius: "50px",
         boxShadow: 2,

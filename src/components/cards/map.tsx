@@ -5,7 +5,7 @@ import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { Paper, Typography, Box } from "@mui/material";
 
 const containerStyle = {
-  width: "100%",
+  width: "400px",
   height: "250px",
   borderRadius: "12px",
   overflow: "hidden",
@@ -55,6 +55,7 @@ const MapComponent: React.FC = () => {
         maxWidth: 300,
         height: "auto",
         boxShadow: 3,
+        ml: 2, // Déplace légèrement vers la gauche
       }}
     >
       <Typography
