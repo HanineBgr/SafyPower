@@ -7,7 +7,6 @@ import InvoicesCard from "../../components/cards/invoicesCard";
 import FeedbackSection from "../../components/cards/Feedback";
 import BillingInfo from "../../components/cards/BillingInfo";
 import PaymentCards from "../../components/cards/paymentCard";
-import AvailableStationsChart from "../../components/charts/availableStationChart"; // Import de la carte
 
 const ProfileScreen: React.FC = () => {
   return (
@@ -15,16 +14,11 @@ const ProfileScreen: React.FC = () => {
       {/* Sidebar */}
       <Sidebar />
 
-      {/* Available Stations Card (Fixed Position) */}
-      <div className="fixed top-8 left-4 z-50">
-        <AvailableStationsChart />
-      </div>
-
       <div className="absolute top-8 left-[250px] w-[1200px]">
         {/* Top Section: Profile Card and Invoices */}
         <div className="flex justify-between w-full">
           {/* Profile Card */}
-          <div className="w-[900px] h-[180px]">
+          <div className="w-[750px] h-[180px]">
             <ProfileCard />
           </div>
 
