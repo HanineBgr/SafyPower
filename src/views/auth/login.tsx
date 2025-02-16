@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import "@fontsource/baloo-chettan-2";
 import "@fontsource/montserrat";
 
-// Define type for form errors
 type FormErrors = {
   email?: string;
   password?: string;

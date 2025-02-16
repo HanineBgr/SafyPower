@@ -8,15 +8,11 @@ import {
   CardContent,
   Typography,
   Button,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
   IconButton,
   Box,
   Paper,
 } from "@mui/material";
-import "../../styles/globals.css"; // Import global styles
+import "../../styles/globals.css";
 
 const InvoicesCard: React.FC = () => {
   const [dates, setDates] = useState<string[]>([]);
@@ -58,7 +54,18 @@ const InvoicesCard: React.FC = () => {
   };
 
   return (
-    <Card sx={{ bgcolor: "white", p: 3, boxShadow: 3, borderRadius: 3, maxWidth: "170rem" }}>
+    <Card
+      sx={{
+        bgcolor: "white",
+        p: 3,
+        boxShadow: 3,
+        borderRadius: 3,
+        maxWidth: "1200px",
+        width: "120%",
+        maxHeight: "12rem",
+        ml: -2, 
+      }}
+    >
       <CardContent>
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Typography variant="h6" fontWeight="bold">
@@ -73,13 +80,12 @@ const InvoicesCard: React.FC = () => {
           </Button>
         </Box>
 
-        {/* Scrollable Invoice List with Custom Scrollbar */}
         <Paper
           elevation={0}
           className="scrollbar-thin"
           sx={{
             mt: 2,
-            maxHeight: "5rem",
+            maxHeight: "6rem",
             overflowY: "hidden",
             "&:hover": { overflowY: "auto" },
             borderRadius: 2,
@@ -113,62 +119,6 @@ const InvoicesCard: React.FC = () => {
           })}
         </Paper>
       </CardContent>
-
-      {/* Dialog for Full Invoice List */}
-      <Dialog open={showAll} onClose={() => setShowAll(false)} maxWidth="sm" fullWidth>
-        <DialogTitle>All Invoices</DialogTitle>
-        <DialogContent
-          sx={{
-            overflow: "hidden", // Prevents default scrollbar
-            p: 0,
-          }}
-        >
-          <Paper
-            elevation={0}
-            className="scrollbar-thin"
-            sx={{
-              maxHeight: "30rem",
-              overflowY: "auto",
-              borderRadius: 2,
-              p: 2,
-              "&::-webkit-scrollbar": { width: "6px" }, // Keep only the custom scrollbar
-              "&::-webkit-scrollbar-track": { background: "#f0f0f0" },
-              "&::-webkit-scrollbar-thumb": { background: "#e6e78b", borderRadius: "10px" },
-            }}
-          >
-            {[...Array(10)].map((_, i) => {
-              const invoiceId = `INV-${i + 1}`;
-              const amount = 1000 * (i + 1);
-
-              return (
-                <Box key={i} py={1} borderBottom="1px solid #e0e0e0">
-                  <Box display="flex" justifyContent="space-between" alignItems="center">
-                    <Typography variant="body2" color="textSecondary">
-                      Date: {dates[i] || "Loading..."}
-                    </Typography>
-                    <Box display="flex" alignItems="center" gap={1}>
-                      <Typography variant="body2" fontWeight="medium">
-                        ${amount}
-                      </Typography>
-                      <IconButton onClick={() => handleDownloadPDF(invoiceId, amount)} color="primary" size="small">
-                        <FaPrint size={14} />
-                      </IconButton>
-                    </Box>
-                  </Box>
-                  <Typography variant="caption" color="textSecondary">
-                    ID: {invoiceId}
-                  </Typography>
-                </Box>
-              );
-            })}
-          </Paper>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setShowAll(false)} color="secondary">
-            Close
-          </Button>
-        </DialogActions>
-      </Dialog>
     </Card>
   );
 };

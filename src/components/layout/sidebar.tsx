@@ -1,21 +1,22 @@
 "use client";
 
 import React from "react";
-import { BarChart2, User, MessageCircle, BatteryCharging } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { Box, IconButton } from "@mui/material";
+import { BarChart2, User, MessageCircle, BatteryCharging } from "lucide-react";
 
 const Sidebar: React.FC = () => {
   const router = useRouter();
   const currentPath = usePathname();
 
+  // Function to check if the current path matches the button path
   const isActive = (path: string) => currentPath === path;
 
   return (
     <Box
       sx={{
-        width: "64px", // Fixed Width
-        height: "90vh", // Fixed Height
+        width: "64px", // Fixed width
+        height: "90vh", // Fixed height
         bgcolor: "white",
         display: "flex",
         flexDirection: "column",
@@ -35,6 +36,7 @@ const Sidebar: React.FC = () => {
 
       {/* Sidebar Buttons */}
       <Box sx={{ display: "flex", flexDirection: "column", gap: 3, mt: 4 }}>
+        {/* Dashboard/Home */}
         <IconButton
           onClick={() => router.push("/home")}
           sx={{
@@ -46,17 +48,19 @@ const Sidebar: React.FC = () => {
           <BarChart2 size={18} color={isActive("/home") ? "#222" : "#666"} />
         </IconButton>
 
+        {/* Profile Page */}
         <IconButton
-          onClick={() => router.push("/auth/profile")}
+          onClick={() => router.push("/profile")}
           sx={{
-            bgcolor: isActive("/auth/profile") ? "#fedd69" : "#f5f5f5",
+            bgcolor: isActive("/profile") ? "#fedd69" : "#f5f5f5",
             boxShadow: 2,
             "&:hover": { bgcolor: "#fedd69" },
           }}
         >
-          <User size={18} color={isActive("/auth/profile") ? "#222" : "#666"} />
+          <User size={18} color={isActive("/profile") ? "#222" : "#666"} />
         </IconButton>
 
+        {/* Contact Form */}
         <IconButton
           onClick={() => router.push("/auth/contactForm")}
           sx={{
@@ -68,6 +72,7 @@ const Sidebar: React.FC = () => {
           <MessageCircle size={18} color={isActive("/auth/contactForm") ? "#222" : "#666"} />
         </IconButton>
 
+        {/* Security Page */}
         <IconButton
           onClick={() => router.push("/security")}
           sx={{

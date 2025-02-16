@@ -10,20 +10,20 @@ import PaymentCards from "../../components/cards/paymentCard";
 
 const ProfileScreen: React.FC = () => {
   return (
-    <div className="relative h-screen bg-[#e0efff] w-[1920px] min-h-[1080px]">
+    <div className="flex h-screen bg-[#e0efff]">
       {/* Sidebar */}
       <Sidebar />
 
-      <div className="absolute top-8 left-[250px] w-[1200px]">
+      <div className="absolute top-8 left-1000px] w-[1200px]"> 
         {/* Top Section: Profile Card and Invoices */}
         <div className="flex justify-between w-full">
           {/* Profile Card */}
-          <div className="w-[750px] h-[180px]">
+          <div className="w-[900px] h-[180px]">
             <ProfileCard />
           </div>
 
           {/* Invoices Card */}
-          <div className="w-[400px] h-[180px]">
+          <div className="w-[600px] h-[50px]">
             <InvoicesCard />
           </div>
         </div>
@@ -36,7 +36,7 @@ const ProfileScreen: React.FC = () => {
         {/* Billing & Feedback Section */}
         <div className="mt-6 flex w-full justify-between absolute top-[320px]">
           {/* Billing Information */}
-          <div className="w-[580px] h-[220px]">
+          <div className="w-[700px] h-[220px]">
             <BillingInfo />
           </div>
 

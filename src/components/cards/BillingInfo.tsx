@@ -17,34 +17,26 @@ import {
   Box,
 } from "@mui/material";
 
-type BillingInfo = {
-  id: number;
-  name: string;
-  company: string;
-  email: string;
-  vat: string;
-};
-
 const BillingInformation: React.FC = () => {
-  const [billingData, setBillingData] = useState<BillingInfo[]>([
+  const [billingData, setBillingData] = useState([
     { id: 1, name: "Oliver Liam", company: "Look Design", email: "company@company.fr", vat: "FR9864983" },
     { id: 2, name: "Emma Smith", company: "Creative Studio", email: "emma@creativestudio.com", vat: "FR5623789" },
     { id: 3, name: "John Doe", company: "Tech Solutions", email: "john@techsolutions.com", vat: "FR2457896" },
   ]);
 
-  const [editingItem, setEditingItem] = useState<BillingInfo | null>(null);
-  const [formData, setFormData] = useState<BillingInfo>({ id: 0, name: "", company: "", email: "", vat: "" });
+  const [editingItem, setEditingItem] = useState<{ id: number; name: string; company: string; email: string; vat: string; } | null>(null);
+  const [formData, setFormData] = useState({ id: 0, name: "", company: "", email: "", vat: "" });
 
   const handleDelete = (id: number) => {
     setBillingData((prevData) => prevData.filter((item) => item.id !== id));
   };
 
-  const handleEdit = (item: BillingInfo) => {
+  const handleEdit = (item: { id: number; name: string; company: string; email: string; vat: string; }) => {
     setEditingItem(item);
     setFormData(item);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: { target: { name: any; value: any; }; }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -55,17 +47,20 @@ const BillingInformation: React.FC = () => {
 
   return (
     <Box
+      className="scrollbar-thin"
       sx={{
-        width: "600px", // Fixed width
-        height: "500px", // Fixed height
+        width: "510px",
+        minHeight: "200px",
+        maxHeight: "80vh",
         bgcolor: "white",
         borderRadius: 2,
         boxShadow: 3,
         padding: "24px",
-        position: "absolute", // Centers it in the viewport
-        left: "50%",
+        position: "absolute",
+        left: "9.9%", 
         top: "50%",
-        transform: "translate(-50%, -50%)",
+        transform: "translate(0, -50%)", 
+        overflowY: "auto",
       }}
     >
       <Stack spacing={3}>
@@ -79,8 +74,8 @@ const BillingInformation: React.FC = () => {
           </Typography>
         ) : (
           billingData.map((billing) => (
-            <Card key={billing.id} sx={{ boxShadow: 2 }}>
-              <CardContent sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <Card key={billing.id} sx={{ boxShadow: 2, borderRadius: "16px" }}> 
+              <CardContent sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderRadius: "16px" }}>
                 <Stack spacing={0.5}>
                   <Typography variant="subtitle1" fontWeight="bold">
                     {billing.name}
@@ -107,28 +102,27 @@ const BillingInformation: React.FC = () => {
             </Card>
           ))
         )}
-      </Stack>
 
-      {/* Edit Dialog */}
-      <Dialog open={!!editingItem} onClose={() => setEditingItem(null)}>
-        <DialogTitle>Edit Billing Info</DialogTitle>
-        <DialogContent>
-          <Stack spacing={2} mt={1}>
-            <TextField label="Name" name="name" value={formData.name} onChange={handleChange} fullWidth />
-            <TextField label="Company" name="company" value={formData.company} onChange={handleChange} fullWidth />
-            <TextField label="Email" type="email" name="email" value={formData.email} onChange={handleChange} fullWidth />
-            <TextField label="VAT Number" name="vat" value={formData.vat} onChange={handleChange} fullWidth />
-          </Stack>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setEditingItem(null)} color="secondary">
-            Cancel
-          </Button>
-          <Button onClick={handleSave} color="primary" variant="contained">
-            Save
-          </Button>
-        </DialogActions>
-      </Dialog>
+        <Dialog open={!!editingItem} onClose={() => setEditingItem(null)}>
+          <DialogTitle>Edit Billing Info</DialogTitle>
+          <DialogContent>
+            <Stack spacing={2} mt={1}>
+              <TextField label="Name" name="name" value={formData.name} onChange={handleChange} fullWidth />
+              <TextField label="Company" name="company" value={formData.company} onChange={handleChange} fullWidth />
+              <TextField label="Email" name="email" value={formData.email} onChange={handleChange} fullWidth />
+              <TextField label="VAT" name="vat" value={formData.vat} onChange={handleChange} fullWidth />
+            </Stack>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => setEditingItem(null)} color="error">
+              Cancel
+            </Button>
+            <Button onClick={handleSave} color="primary">
+              Save
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </Stack>
     </Box>
   );
 };
