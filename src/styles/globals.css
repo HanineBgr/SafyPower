@@ -18,6 +18,10 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #e0efff;
+  color: #333;
 }
 
 /* Custom Scrollbar */
@@ -33,11 +37,14 @@ body {
   background: #e6e78b;
   border-radius: 10px;
 }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #e0efff;
-  color: #333;
+
+/* Hide default scrollbars */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none; /* Firefox */
 }
 
 input, textarea {
@@ -67,6 +74,7 @@ button {
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-in-out;
 }
+
 .toggle-switch {
   appearance: none;
   width: 2.5rem; 
