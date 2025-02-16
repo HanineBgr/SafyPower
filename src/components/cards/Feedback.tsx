@@ -104,7 +104,8 @@ const FeedbackSection: React.FC = () => {
   return (
     <Box
       sx={{
-        width: "530px",
+        ml:"600px",
+        width: "580px",
         height: "520px",
         padding: "20px",
         bgcolor: "white",
@@ -114,7 +115,7 @@ const FeedbackSection: React.FC = () => {
       }}
     >
       <Typography variant="h6" fontWeight="bold" gutterBottom>
-        My Feedback
+        Feedbacks
       </Typography>
       <Box
         sx={{ maxHeight: "440px", overflowY: "auto", paddingRight: "8px" }}
@@ -167,7 +168,6 @@ const FeedbackSection: React.FC = () => {
                   </Stack>
                 </Stack>
 
-                {/* Reply Input Field (Only Visible When Reply Icon is Clicked) */}
                 {replyingTo === feedback.id && (
                   <Stack spacing={1} sx={{ mt: 2 }}>
                     <TextField

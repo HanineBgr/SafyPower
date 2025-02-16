@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { FaPrint } from "react-icons/fa";
 import jsPDF from "jspdf";
+import "jspdf-autotable";
 import {
   Card,
   CardContent,
@@ -26,31 +27,54 @@ const InvoicesCard: React.FC = () => {
     const doc = new jsPDF();
     const today = new Date().toLocaleString();
 
-    doc.setFontSize(22);
-    doc.setTextColor("#333");
-    doc.text("Bike Charging Invoice", 14, 20);
-    doc.setFontSize(12);
-    doc.setTextColor("#555");
-    doc.text("Station Name: EcoCharge Station", 14, 28);
-    doc.text("Address: Rue 104, City, France", 14, 34);
-    doc.text("Email: support@ecocharge.com | Phone: +33 234 567 890", 14, 40);
+    const logoUrl = "/assets/logos/logo.png"; 
 
-    doc.setFontSize(18);
-    doc.setTextColor("#333");
-    doc.text("Invoice", 14, 55);
-    doc.setFontSize(12);
-    doc.setTextColor("#555");
-    doc.text(`Invoice ID: ${invoiceId}`, 14, 65);
-    doc.text(`Date: ${today}`, 14, 71);
-    doc.text(`Amount: $${amount}`, 14, 77);
+    const img = new Image();
+    img.src = logoUrl;
+    img.onload = () => {
+      doc.addImage(img, "PNG", 180, 10, 20, 20); 
 
-    const finalY = 200;
-    doc.setFontSize(10);
-    doc.setTextColor("#555");
-    doc.text("Thank you for using EcoCharge Station!", 14, finalY + 10);
-    doc.text("For inquiries, contact support@ecocharge.com.", 14, finalY + 16);
+      // Header
+      doc.setFontSize(22);
+      doc.setTextColor("#333");
+      doc.text("Bike Charging Invoice", 14, 20);
 
-    doc.save(`Invoice_${invoiceId}.pdf`);
+      doc.setFontSize(12);
+      doc.setTextColor("#555");
+      doc.text("Station Name: SafyPower Station", 14, 30);
+      doc.text("Address: Rue 104, Paris, France", 14, 36);
+      doc.text("Email: Hello@safypower.fr | Phone: 01.42.71.91.34", 14, 42);
+
+      // Invoice Details
+      doc.setFontSize(18);
+      doc.setTextColor("#333");
+      doc.text("Invoice Details", 14, 55);
+
+      doc.setFontSize(12);
+      doc.setTextColor("#555");
+      doc.text(`Invoice ID: ${invoiceId}`, 14, 65);
+      doc.text(`Date: ${today}`, 14, 71);
+      doc.text(`Total Amount: $${amount}`, 14, 77);
+
+      // Table
+      (doc as any).autoTable({
+        startY: 90,
+        head: [["Description", "Quantity", "Unit Price", "Total"]],
+        body: [["Bike Charging Session", "1", `$${amount}`, `$${amount}`]],
+        theme: "grid",
+        styles: { fontSize: 10, cellPadding: 3 },
+        headStyles: { fillColor: [50, 50, 50], textColor: 255 },
+        alternateRowStyles: { fillColor: [240, 240, 240] },
+      });
+
+      const finalY = (doc as any).autoTable.previous.finalY + 20;
+      doc.setFontSize(10);
+      doc.setTextColor("#555");
+      doc.text("Thank you for using SafyPower Station!", 14, finalY);
+      doc.text("For inquiries, contact Hello@safypower.fr.", 14, finalY + 6);
+
+      doc.save(`Invoice_${invoiceId}.pdf`);
+    };
   };
 
   return (
@@ -63,7 +87,7 @@ const InvoicesCard: React.FC = () => {
         maxWidth: "2000px",
         width: "150%",
         maxHeight: "180px",
-        ml: -24, 
+        ml: -24,
       }}
     >
       <CardContent>
@@ -98,7 +122,11 @@ const InvoicesCard: React.FC = () => {
 
             return (
               <Box key={i} py={1} borderBottom="1px solid #e0e0e0">
-                <Box display="flex" justifyContent="space-between" alignItems="center">
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
                   <Typography variant="body2" color="textSecondary">
                     Date: {dates[i] || "Loading..."}
                   </Typography>
@@ -106,7 +134,11 @@ const InvoicesCard: React.FC = () => {
                     <Typography variant="body2" fontWeight="medium">
                       ${amount}
                     </Typography>
-                    <IconButton onClick={() => handleDownloadPDF(invoiceId, amount)} color="primary" size="small">
+                    <IconButton
+                      onClick={() => handleDownloadPDF(invoiceId, amount)}
+                      color="primary"
+                      size="small"
+                    >
                       <FaPrint size={14} />
                     </IconButton>
                   </Box>
