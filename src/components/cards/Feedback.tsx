@@ -1,17 +1,17 @@
 "use client";
-
 import React, { useState } from "react";
-import { Heart, Reply, Send } from "lucide-react";
+import { Heart, Send, MessageCircle } from "lucide-react";
 import {
   Card,
   CardContent,
   Typography,
   IconButton,
-  Button,
   TextField,
   Stack,
   Box,
+  InputAdornment,
 } from "@mui/material";
+import "../../styles/globals.css";
 
 type Feedback = {
   id: number;
@@ -80,7 +80,7 @@ const FeedbackSection: React.FC = () => {
     );
   };
 
-  const handleReply = (id: number) => {
+  const handleReplyClick = (id: number) => {
     setReplyingTo(replyingTo === id ? null : id);
   };
 
@@ -91,13 +91,13 @@ const FeedbackSection: React.FC = () => {
           feedback.id === id
             ? {
                 ...feedback,
-                replies: [...feedback.replies, replyText],
+                replies: [...feedback.replies, replyText], // Store the reply under the feedback
               }
             : feedback
         )
       );
       setReplyText("");
-      setReplyingTo(null);
+      setReplyingTo(null); // Hide the reply input after submission
     }
   };
 
@@ -105,7 +105,7 @@ const FeedbackSection: React.FC = () => {
     <Box
       sx={{
         width: "530px",
-        height: "500px",
+        height: "520px",
         padding: "20px",
         bgcolor: "white",
         borderRadius: 3,
@@ -116,113 +116,100 @@ const FeedbackSection: React.FC = () => {
       <Typography variant="h6" fontWeight="bold" gutterBottom>
         My Feedback
       </Typography>
-
-      <Stack
-        spacing={2}
-        sx={{ maxHeight: "420px", overflowY: "auto", paddingRight: "8px" }}
+      <Box
+        sx={{ maxHeight: "440px", overflowY: "auto", paddingRight: "8px" }}
+        className="scrollbar-thin"
       >
-        {feedbacks.map((feedback) => (
-          <Card key={feedback.id} sx={{ bgcolor: "#EFF6FF", borderRadius: 2 }}>
-            <CardContent>
-              <Stack direction="row" spacing={2} alignItems="center">
-                {/* Avatar */}
-                <Box
-                  sx={{
-                    width: "30px",
-                    height: "30px",
-                    bgcolor: "#cce4ff",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "12px",
-                    fontWeight: "bold",
-                    color: "#1e3a8a",
-                    borderRadius: "50%",
-                  }}
-                >
-                  {feedback.name[0]}
-                </Box>
-
-                {/* Feedback Content */}
-                <Box flex={1}>
-                  <Typography variant="subtitle2" fontWeight="bold">
-                    {feedback.name}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary">
-                    {feedback.text}
-                  </Typography>
-                  {/* Rating */}
-                  <Typography
-                    variant="body2"
-                    color="warning.main"
-                    sx={{ mt: 1 }}
-                  >
-                    {"★".repeat(feedback.rating)}
-                    {"☆".repeat(5 - feedback.rating)}
-                  </Typography>
-                </Box>
-
-                {/* Actions (Like & Reply) */}
-                <Stack spacing={1} alignItems="center">
-                  <IconButton onClick={() => handleReply(feedback.id)}>
-                    <Reply size={18} />
-                  </IconButton>
-                  <IconButton
-                    onClick={() => toggleLike(feedback.id)}
-                    sx={{ color: feedback.liked ? "error.main" : "text.secondary" }}
-                  >
-                    <Heart size={18} fill={feedback.liked ? "currentColor" : "none"} />
-                    <Typography variant="body2">{feedback.likes}</Typography>
-                  </IconButton>
-                </Stack>
-              </Stack>
-
-              {/* Reply Box */}
-              {replyingTo === feedback.id && (
-                <Stack
-                  direction="row"
-                  alignItems="center"
-                  spacing={1}
-                  sx={{ mt: 2, bgcolor: "white", p: 1, borderRadius: 2, boxShadow: 1 }}
-                >
-                  <TextField
-                    variant="standard"
-                    fullWidth
-                    placeholder="Write your reply..."
-                    value={replyText}
-                    onChange={(e) => setReplyText(e.target.value)}
+        <Stack spacing={2}>
+          {feedbacks.map((feedback) => (
+            <Card key={feedback.id} sx={{ bgcolor: "#EFF6FF", borderRadius: 2 }}>
+              <CardContent sx={{ minHeight: "90px" }}>
+                <Stack direction="row" spacing={2} alignItems="center">
+                  <Box
                     sx={{
-                      "& .MuiInputBase-root": { fontSize: "14px" },
-                      "& .MuiInput-underline:before": { borderBottom: "none" },
-                      "& .MuiInput-underline:hover:before": { borderBottom: "none" },
-                      "& .MuiInput-underline:after": { borderBottom: "none" },
+                      width: "30px",
+                      height: "30px",
+                      bgcolor: "#cce4ff",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "12px",
+                      fontWeight: "bold",
+                      color: "#1e3a8a",
+                      borderRadius: "50%",
                     }}
-                  />
-                  <IconButton
-                    onClick={() => submitReply(feedback.id)}
-                    color="primary"
                   >
-                    <Send size={16} />
-                  </IconButton>
-                </Stack>
-              )}
-
-              {feedback.replies.length > 0 && (
-                <Stack spacing={1} sx={{ mt: 2 }}>
-                  {feedback.replies.map((reply, index) => (
-                    <Box
-                      key={index}
-                      sx={{ p: 1, bgcolor: "grey.100", borderRadius: 2, fontSize: "14px" }}
+                    {feedback.name[0]}
+                  </Box>
+                  <Box flex={1}>
+                    <Typography variant="subtitle2" fontWeight="bold">
+                      {feedback.name}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary">
+                      {feedback.text}
+                    </Typography>
+                    <Typography variant="body2" color="warning.main" sx={{ mt: 1 }}>
+                      {"★".repeat(feedback.rating)}
+                      {"☆".repeat(5 - feedback.rating)}
+                    </Typography>
+                  </Box>
+                  <Stack spacing={1} alignItems="center">
+                    <IconButton onClick={() => handleReplyClick(feedback.id)}>
+                      <MessageCircle size={18} />
+                    </IconButton>
+                    <IconButton
+                      onClick={() => toggleLike(feedback.id)}
+                      sx={{ color: feedback.liked ? "error.main" : "text.secondary" }}
                     >
-                      {reply}
-                    </Box>
-                  ))}
+                      <Heart size={18} fill={feedback.liked ? "currentColor" : "none"} />
+                      <Typography variant="body2">{feedback.likes}</Typography>
+                    </IconButton>
+                  </Stack>
                 </Stack>
-              )}
-            </CardContent>
-          </Card>
-        ))}
-      </Stack>
+
+                {/* Reply Input Field (Only Visible When Reply Icon is Clicked) */}
+                {replyingTo === feedback.id && (
+                  <Stack spacing={1} sx={{ mt: 2 }}>
+                    <TextField
+                      fullWidth
+                      variant="outlined"
+                      size="small"
+                      placeholder="Write a reply..."
+                      value={replyText}
+                      onChange={(e) => setReplyText(e.target.value)}
+                      sx={{
+                        borderRadius: "20px",
+                        bgcolor: "rgba(0, 0, 0, 0.05)",
+                        "& fieldset": { border: "none" },
+                      }}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton onClick={() => submitReply(feedback.id)} edge="end">
+                              <Send size={18} color="gray" />
+                            </IconButton>
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
+                  </Stack>
+                )}
+
+                {/* Display Replies (if any exist) */}
+                {feedback.replies.length > 0 && (
+                  <Box sx={{ mt: 2, pl: 4, pt: 1, borderLeft: "2px solid #cce4ff" }}>
+                    {feedback.replies.map((reply, index) => (
+                      <Typography key={index} variant="body2" sx={{ mt: 1 }}>
+                        <strong>Reply:</strong> {reply}
+                      </Typography>
+                    ))}
+                  </Box>
+                )}
+              </CardContent>
+            </Card>
+          ))}
+        </Stack>
+      </Box>
     </Box>
   );
 };

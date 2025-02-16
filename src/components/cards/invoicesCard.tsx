@@ -60,10 +60,10 @@ const InvoicesCard: React.FC = () => {
         p: 3,
         boxShadow: 3,
         borderRadius: 3,
-        maxWidth: "1200px",
-        width: "120%",
-        maxHeight: "12rem",
-        ml: -2, 
+        maxWidth: "2000px",
+        width: "150%",
+        maxHeight: "180px",
+        ml: -24, 
       }}
     >
       <CardContent>
@@ -85,7 +85,7 @@ const InvoicesCard: React.FC = () => {
           className="scrollbar-thin"
           sx={{
             mt: 2,
-            maxHeight: "6rem",
+            maxHeight: "5rem",
             overflowY: "hidden",
             "&:hover": { overflowY: "auto" },
             borderRadius: 2,

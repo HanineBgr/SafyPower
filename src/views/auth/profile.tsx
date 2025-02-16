@@ -18,26 +18,18 @@ const ProfileScreen = () => {
         {/* Top Section: Profile Card and Invoices */}
         <div className="grid grid-cols-3 gap-6">
           {/* Profile Card */}
-          <div className="col-span-2 -ml-40"> 
+          <div className="col-span-2 -ml-40">
             <ProfileCard />
           </div>
-          {/* Invoices Card */}
-          <div>
+          {/* Invoices Card moved slightly to the left */}
+          <div className="ml-[-20px]">
             <InvoicesCard />
           </div>
         </div>
-        {/* Payment Methods Section */}
-        <div className="mt-6 -ml-[505px]"> {/* Line 30: Adjusted margin-left to extreme left */}
-          <PaymentCards />
-        </div>
-        {/* Bottom Section: Billing Info and Feedback */}
-        <div className="mt-6 grid grid-cols-3 gap-6">
-          {/* Billing Information */}
-          <div className="col-span-2">
-            <BillingInfo />
-          </div>
-          {/* Feedback Section */}
-          <div>
+
+        {/* Feedback Section moved to the extreme right, slightly down and a bit more to the right */}
+        <div className="mt-10 flex justify-end w-full ml-[-1px]">
+          <div className="w-[1400px]">
             <FeedbackSection />
           </div>
         </div>
@@ -45,4 +37,5 @@ const ProfileScreen = () => {
     </div>
   );
 };
+
 export default ProfileScreen;
