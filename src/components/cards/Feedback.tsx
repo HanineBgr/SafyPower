@@ -91,20 +91,19 @@ const FeedbackSection: React.FC = () => {
           feedback.id === id
             ? {
                 ...feedback,
-                replies: [...feedback.replies, replyText], // Store the reply under the feedback
+                replies: [...feedback.replies, replyText],
               }
             : feedback
         )
       );
       setReplyText("");
-      setReplyingTo(null); // Hide the reply input after submission
+      setReplyingTo(null);
     }
   };
 
   return (
     <Box
       sx={{
-        ml:"600px",
         width: "580px",
         height: "520px",
         padding: "20px",
@@ -167,44 +166,6 @@ const FeedbackSection: React.FC = () => {
                     </IconButton>
                   </Stack>
                 </Stack>
-
-                {replyingTo === feedback.id && (
-                  <Stack spacing={1} sx={{ mt: 2 }}>
-                    <TextField
-                      fullWidth
-                      variant="outlined"
-                      size="small"
-                      placeholder="Write a reply..."
-                      value={replyText}
-                      onChange={(e) => setReplyText(e.target.value)}
-                      sx={{
-                        borderRadius: "20px",
-                        bgcolor: "rgba(0, 0, 0, 0.05)",
-                        "& fieldset": { border: "none" },
-                      }}
-                      InputProps={{
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <IconButton onClick={() => submitReply(feedback.id)} edge="end">
-                              <Send size={18} color="gray" />
-                            </IconButton>
-                          </InputAdornment>
-                        ),
-                      }}
-                    />
-                  </Stack>
-                )}
-
-                {/* Display Replies (if any exist) */}
-                {feedback.replies.length > 0 && (
-                  <Box sx={{ mt: 2, pl: 4, pt: 1, borderLeft: "2px solid #cce4ff" }}>
-                    {feedback.replies.map((reply, index) => (
-                      <Typography key={index} variant="body2" sx={{ mt: 1 }}>
-                        <strong>Reply:</strong> {reply}
-                      </Typography>
-                    ))}
-                  </Box>
-                )}
               </CardContent>
             </Card>
           ))}

@@ -17,8 +17,8 @@ const StationUsagePieChart: React.FC = () => {
         p: 2,
         borderRadius: 3,
         boxShadow: 3,
-        width: "340px", // Réduction de la largeur
-        height: "250px", // Réduction de la hauteur
+        width: "340px", 
+        height: "250px", 
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

@@ -9,8 +9,8 @@ import {
   IconButton,
   Dialog,
   DialogTitle,
-DialogContent,  
-  DialogActions,  
+  DialogContent,
+  DialogActions,
   Button,
   TextField,
   Stack,
@@ -55,13 +55,15 @@ const BillingInformation: React.FC = () => {
         bgcolor: "white",
         borderRadius: 2,
         boxShadow: 3,
-        padding: "24px",
-        position: "absolute",
-        left: "9.9%", 
-        top: "50%",
-        transform: "translate(0, -50%)", 
+        padding: "30px",
+       // position: "fixed",  // Keeps the card in place without moving
+        top: "400px",  // Adjust this value to fit within the layout
+        alignSelf: "start",  // Ensures it doesn't overlap other content
         overflowY: "auto",
+        marginLeft: "auto",  // Pushes it to the right
+        marginRight: "51.5%",  // Adjust to control the exact right positioning
       }}
+      
     >
       <Stack spacing={3}>
         <Typography variant="h6" fontWeight="bold">
@@ -74,7 +76,7 @@ const BillingInformation: React.FC = () => {
           </Typography>
         ) : (
           billingData.map((billing) => (
-            <Card key={billing.id} sx={{ boxShadow: 2, borderRadius: "16px" }}> 
+            <Card key={billing.id} sx={{ boxShadow: 2, borderRadius: "16px" }}>
               <CardContent sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderRadius: "16px" }}>
                 <Stack spacing={0.5}>
                   <Typography variant="subtitle1" fontWeight="bold">

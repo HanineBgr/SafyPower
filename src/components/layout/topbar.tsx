@@ -17,7 +17,7 @@ const TopBlueBar: React.FC<TopBlueBarProps> = ({ onBellClick }) => {
     <AppBar
       position="static"
       sx={{
-        bgcolor: "#B2DFFC", // Blue-Tinted Background
+        bgcolor: "#B2DFFC", 
         mx: "auto",
         mt: 2,
         borderRadius: 2,
@@ -27,12 +27,10 @@ const TopBlueBar: React.FC<TopBlueBarProps> = ({ onBellClick }) => {
       }}
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between", py: 2 }}>
-        {/* Logo Title */}
         <Typography variant="h6" fontWeight="bold" color="text.primary">
           SafyPower
         </Typography>
 
-        {/* Icons (Settings & Bell) */}
         <Box display="flex" gap={2}>
           {/* Settings Icon */}
           <IconButton onClick={handleSettingsClick} color="default">

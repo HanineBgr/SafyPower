@@ -14,7 +14,7 @@ const PaymentCards: React.FC = () => {
         boxShadow: 3,
         mx: "auto",
         width: "580px",
-        height: 20, // Hauteur réduite de la carte
+        height: 20,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -29,11 +29,11 @@ const PaymentCards: React.FC = () => {
                 alignItems="center"
                 justifyContent="space-between"
                 bgcolor="#f4f9ff"
-                p={1} // Réduction du padding interne
+                p={1} 
                 borderRadius={1}
                 boxShadow={1}
-                height={35} // Ajustement de la hauteur
-                width="100%" // Largeur ajustée pour éviter le débordement
+                height={35} 
+                width="100%" 
               >
                 <Box display="flex" alignItems="center" gap={1.2}>
                   <img src={`/assets/cards/${cardType}.png`} alt={cardType} style={{ width: 18, height: 10 }} />
