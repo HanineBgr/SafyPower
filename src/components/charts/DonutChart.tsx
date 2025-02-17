@@ -55,7 +55,6 @@ const StationUsagePieChart: React.FC = () => {
             </PieChart>
           </ResponsiveContainer>
 
-          {/* Center Text (Total Usage) */}
           <Box
             sx={{
               position: "absolute",

@@ -22,15 +22,12 @@ const ProfileScreen = () => {
             <ProfileCard />
           </div>
 
-          {/* Invoices Card  */}
           <div className="ml-[-20px]">
             <InvoicesCard />
           </div>
         </div>
 
-        {/* Bottom Section: Billing Info and Feedback aligned horizontally */}
         <div className="grid grid-cols-2 gap-6 mt-6">
-          {/* Billing Info moved slightly to the right */}
           <div className="ml-20">
             <BillingInfo />
           </div>
