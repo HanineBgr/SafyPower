@@ -104,8 +104,8 @@ const FeedbackSection: React.FC = () => {
   return (
     <Box
       sx={{
-        width: "580px",
-        height: "520px",
+        width: "615px",
+        height: "500px",
         padding: "20px",
         bgcolor: "white",
         borderRadius: 3,

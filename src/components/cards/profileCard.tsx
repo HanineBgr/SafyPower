@@ -1,62 +1,46 @@
 "use client";
 
-import React, { useState } from "react";
-import { FaPen } from "react-icons/fa";
-import {
-  Card,
-  CardContent,
-  Typography,
-  Button,
-  IconButton,
-  Box,
-} from "@mui/material";
-import "../../styles/globals.css"; 
+import React from "react";
+import Sidebar from "../../components/layout/sidebar";
+import ProfileCard from "../../components/cards/profileCard";
+import InvoicesCard from "../../components/cards/invoicesCard";
+import FeedbackSection from "../../components/cards/Feedback";
+import BillingInfo from "@/components/cards/BillingInfo";
 
-const ProfileCard: React.FC = () => {
-  const [showSettingsModal, setShowSettingsModal] = useState<boolean>(false);
-  const [showInfoModal, setShowInfoModal] = useState<boolean>(false);
-
+const ProfileScreen = () => {
   return (
-    <Card sx={{ bgcolor: "white", p: 3, borderRadius: 2, boxShadow: 3, maxWidth: "500px", height: "180px", mx: "auto", ml: 30 }}>
-      <CardContent>
-        <Box display="flex" justifyContent="space-between" alignItems="center">
-          <Box display="flex" alignItems="center" gap={2}>
-            <img src="/assets/logos/logo.png" alt="Logo" width={48} height={48} />
-            <Box>
-              <Typography variant="h6" fontWeight="bold">
-                Hanine Bouguerra
-              </Typography>
-              <Typography variant="body2" color="textSecondary">
-                bouguerrahanine4@gmail.com
-              </Typography>
-            </Box>
-          </Box>
-          <IconButton size="small">
-            <FaPen className="text-gray-500" />
-          </IconButton>
-        </Box>
+    <div className="flex h-screen bg-[#e0efff] overflow-hidden">
+      {/* Sidebar */}
+      <Sidebar />
 
-        <Box display="flex" mt={3} gap={2}>
-          <Button
-            fullWidth
-            variant="outlined"
-            onClick={() => setShowSettingsModal(true)}
-            sx={{ borderRadius: "50px" }}
-          >
-            Profile settings
-          </Button>
-          <Button
-            fullWidth
-            variant="outlined"
-            onClick={() => setShowInfoModal(true)}
-            sx={{ borderRadius: "50px" }}
-          >
-            Profile information
-          </Button>
-        </Box>
-      </CardContent>
-    </Card>
+      {/* Main Content */}
+      <div className="flex-1 p-8 h-full overflow-auto scrollbar-hide">
+        {/* Top Section: Profile Card and Invoices */}
+        <div className="grid grid-cols-3 gap-6">
+          {/* Profile Card */}
+          <div className="col-span-2 -ml-40">
+            <ProfileCard />
+          </div>
+
+          {/* Invoices Card  */}
+          <div className="ml-[-20px]">
+            <InvoicesCard />
+          </div>
+        </div>
+
+        {/* Feedback Section moved under the Invoices Card */}
+        <div className="mt-6 flex justify-end">
+          <div className="w-[600px]">
+            <FeedbackSection />
+          </div>
+        </div>
+
+        <div className="mt-6">
+          <BillingInfo />
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default ProfileCard;
+export default ProfileScreen;

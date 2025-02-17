@@ -49,19 +49,18 @@ const BillingInformation: React.FC = () => {
     <Box
       className="scrollbar-thin"
       sx={{
-        width: "510px",
+        width: "500px",
         minHeight: "200px",
         maxHeight: "80vh",
         bgcolor: "white",
         borderRadius: 2,
         boxShadow: 3,
         padding: "30px",
-       // position: "fixed",  // Keeps the card in place without moving
-        top: "400px",  // Adjust this value to fit within the layout
-        alignSelf: "start",  // Ensures it doesn't overlap other content
+        top: "400px",  
+        alignSelf: "start",  
         overflowY: "auto",
-        marginLeft: "auto",  // Pushes it to the right
-        marginRight: "51.5%",  // Adjust to control the exact right positioning
+        marginLeft: "auto",  
+        marginRight: "51.5%", 
       }}
       
     >

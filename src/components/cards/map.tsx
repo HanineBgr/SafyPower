@@ -5,7 +5,7 @@ import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { Paper, Typography, Box } from "@mui/material";
 
 const containerStyle = {
-  width: "100%", // Ensures it adapts to the parent Paper width
+  width: "100%", 
   height: "250px",
   borderRadius: "12px",
   overflow: "hidden",
