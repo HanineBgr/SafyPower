@@ -14,5 +14,4 @@ SafyPower Dashboard is a prototype web application built using React & Next.js t
 - **Package Manager** : npm / yarn
   
 ## 📷 Demo 
-
-<!-- Uploading "safyPower.mp4"... -->
+https://github.com/user-attachments/assets/028b3278-1e76-4651-953d-a7850cfb7469
